@@ -2,42 +2,46 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
           <loc>https://developer.fireflysemantics.com/</loc>
-          <lastmod>2021-Feb-04</lastmod>
+          <lastmod>2021-Feb-05</lastmod>
       </url>
       <url>
       <loc>https://developer.fireflysemantics.com//guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--configuring-the-aws-amplify-cli</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--determining-a-node-scripts-current-working-directory</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--instant-html-boilerplate-in-vscode-with-emmet</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
+  </url>
+<url>
+      <loc>https://developer.fireflysemantics.com//tasks/tasks--resetting-aws-amplify</loc>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--running-scully-without-a-data-collection-promt</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--styling-inner-html-content-with-angular</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--understanding-angular-router-specificity</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--using-enum-values-in-angular-templates</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//concepts/concepts--angular-view</loc>
-      <lastmod>2021-Feb-04</lastmod>
+      <lastmod>2021-Feb-05</lastmod>
   </url>
   </urlset>
