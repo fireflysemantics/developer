@@ -2,234 +2,238 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
           <loc>https://developer.fireflysemantics.com/</loc>
-          <lastmod>2021-Feb-23</lastmod>
+          <lastmod>2021-Feb-24</lastmod>
       </url>
       <url>
       <loc>https://developer.fireflysemantics.com//guides/guides--introduction-to-the-firefly-semantics-slice-reactive-entity-store</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//guides/guides--introduction-to-the-firefly-semantics-slice-reactive-object-store</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//guides/guides--dexie--browser-big-data-with-dexie-and-typescript</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--accessing-the-component-host-element-via-constructor-injection</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--adding-aws-cognito-federated-login-with-google-using-aws-amplify</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--assigning-boolean-values-to-angular-input-properties</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--centering-angular-material-data-dable-header-and-content-cells</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--create-a-material-login-form</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--creating-a-conditional-clear-button-on-our-angular-material-search-field</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--creating-a-dynamic-component-with-a-custom-injector</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--creating-an-angular-npm-installable-service-library</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--debouncing-your-angular-search-field</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--formatting-your-angular-number-to-2-decimal-places</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--getting-angular-ready-for-aws-amplify</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--hiding-angular-material-data-table-columns</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--listening-to-enter-input-events-with-angular</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--loading-json-on-stackblitz-with-angular</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--npm-installable-angular-material-kitchen-sink-module</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--passing-function-arguments-in-the-angular-template-declaration</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--programmatically-disable-an-angular-email-material-input-field</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--reacting-to-keyup-events-with-angular</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--rendering-your-angular-reactive-form-control-in-a-template</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--setting-angular-component-title-and-meta-tags-dynamically</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--styling-inner-html-content-with-angular</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--submitting-your-reactive-angular-form</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--switching-off-the-float-label-of-our-angular-material-search-field</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--synchronous-programmig-with-rxjs-observable</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--the-pipe-async-could-not-be-found</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--understanding-angular-router-specificity</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--angular--using-enum-values-in-angular-templates</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--aws--configuring-the-aws-amplify-cli</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--aws--removing-your-newly-created-amplify-cognito-pool</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--aws--resetting-aws-amplify</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--css--generating-a-css-background-shape-with-css-clip-path</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--css--styling-a-file-input-button-with-materialize</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--csv--using-papaparse-with-typescript</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--javascript--reading-text-files-with-javascript</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--jest--practical-unit-testing</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--linux--creating-an-alias-for-ts-node-on-linux</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--node--determining-a-node-scripts-current-working-directory</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--rxjs--simulating-errors-with-rxjs</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--scully--running-scully-without-a-data-collection-promt</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--slice--changing-the-fireflysemantics-slice-estore-default-configuration</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--slice--derived-reactive-observable-state-with-slice</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--slice--observing-currently-active-entities-with-slice</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--slice--reactive-event-driven-actions-with-firefly-semantics-slice</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--typescript--changing-the-fireflysemantics-slice-estore-default-configuration</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--typescript--creating-an-untyped-npm-module</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--typescript--declaring-a-typescript-function-type</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--typescript--moving-from-node-require-imports-typescript-imports</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--typescript--using-vanilla-npm-modules-with-typescript</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
+  </url>
+<url>
+      <loc>https://developer.fireflysemantics.com//tasks/tasks--verdaccio--installing-and-testing-verdaccio</loc>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//tasks/tasks--vscode--instant-html-boilerplate-in-vscode-with-emmet</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//concepts/concepts--angular--angular-view</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//concepts/concepts--angular--what-is-an-angular-view-container</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//concepts/concepts--rxjs--understanding-the-rxjs-observable-contract</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
 <url>
       <loc>https://developer.fireflysemantics.com//concepts/concepts--typescript--typescript-partial</loc>
-      <lastmod>2021-Feb-23</lastmod>
+      <lastmod>2021-Feb-24</lastmod>
   </url>
   </urlset>
