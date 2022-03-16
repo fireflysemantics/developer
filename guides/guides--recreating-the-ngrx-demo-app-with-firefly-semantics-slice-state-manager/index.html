@@ -27,7 +27,7 @@
         gtag('js', new Date());
         gtag('config', 'G-K062C8V6TK');
       </script>    
-    <style>body,html{height:100%;}body{margin:0;font-family:Roboto,Helvetica Neue,sans-serif;}</style><link rel="stylesheet" href="styles.3d7233f8f9276f7f5733.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.3d7233f8f9276f7f5733.css"></noscript><script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script><style></style><title>Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager</title><meta name="description" content="Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities."><meta name="keywords" content="Firefly Semantics, Slice, Angular, JavaScript, TypeScript"><meta name="author" content="Firefly Semantics Corporation"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="https://developer.fireflysemantics.com/"><meta name="twitter:title" content="Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager"><meta name="twitter:description" content="Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities."><meta name="twitter:creator" content="@fireflysmtics"><meta name="twitter:image" content="https://fireflysemantics.github.io/i/developer/glowing-2245832_1920.jpg"><meta name="og:title" content="Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager"><meta name="og:type" content="article"><meta name="og:url" content="https://developer.fireflysemantics.com/"><meta name="og:image" content="https://fireflysemantics.github.io/i/developer/glowing-2245832_1920.jpg"><meta name="og:description" content="Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities."><meta name="og:site_name" content="Firefly Semantics Developer Center"><style>mat-toolbar[_ngcontent-mht-c42]{display:flex;position:fixed;justify-content:space-between;align-items:center;min-height:100px;width:100%;padding:40px}.Logo[_ngcontent-mht-c42]{color:gray;width:64px;height:64px}mat-form-field[_ngcontent-mht-c42]{margin-left:1rem;width:100%;max-width:48rem;height:70px;padding:0 2rem}@media only screen and (min-width:992px){mat-form-field[_ngcontent-mht-c42]{width:100%;margin-left:-2rem;max-width:48rem;height:70px}}.hideShowToolbar[_ngcontent-mht-c42]{transition:all .4s ease-in-out!important;position:fixed;top:0}.hideToolbar[_ngcontent-mht-c42]{transform:translateY(-100%)}.showToolbar[_ngcontent-mht-c42]{transform:translateY(0)}</style><style>.cdk-high-contrast-active .mat-toolbar{outline:solid 1px}.mat-toolbar-row,.mat-toolbar-single-row{display:flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar-multiple-rows{display:flex;box-sizing:border-box;flex-direction:column;width:100%}
+    <style>body,html{height:100%;}body{margin:0;font-family:Roboto,Helvetica Neue,sans-serif;}</style><link rel="stylesheet" href="styles.3d7233f8f9276f7f5733.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.3d7233f8f9276f7f5733.css"></noscript><script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script><style></style><title>Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager</title><meta name="description" content="Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities."><meta name="keywords" content="Firefly Semantics, Slice, Angular, JavaScript, TypeScript"><meta name="author" content="Firefly Semantics Corporation"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="https://developer.fireflysemantics.com/"><meta name="twitter:title" content="Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager"><meta name="twitter:description" content="Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities."><meta name="twitter:creator" content="@fireflysmtics"><meta name="twitter:image" content="https://fireflysemantics.github.io/i/developer/glowing-2245832_1920.jpg"><meta name="og:title" content="Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager"><meta name="og:type" content="article"><meta name="og:url" content="https://developer.fireflysemantics.com/"><meta name="og:image" content="https://fireflysemantics.github.io/i/developer/glowing-2245832_1920.jpg"><meta name="og:description" content="Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities."><meta name="og:site_name" content="Firefly Semantics Developer Center"><style>mat-toolbar[_ngcontent-ngg-c42]{display:flex;position:fixed;justify-content:space-between;align-items:center;min-height:100px;width:100%;padding:40px}.Logo[_ngcontent-ngg-c42]{color:gray;width:64px;height:64px}mat-form-field[_ngcontent-ngg-c42]{margin-left:1rem;width:100%;max-width:48rem;height:70px;padding:0 2rem}@media only screen and (min-width:992px){mat-form-field[_ngcontent-ngg-c42]{width:100%;margin-left:-2rem;max-width:48rem;height:70px}}.hideShowToolbar[_ngcontent-ngg-c42]{transition:all .4s ease-in-out!important;position:fixed;top:0}.hideToolbar[_ngcontent-ngg-c42]{transform:translateY(-100%)}.showToolbar[_ngcontent-ngg-c42]{transform:translateY(0)}</style><style>.cdk-high-contrast-active .mat-toolbar{outline:solid 1px}.mat-toolbar-row,.mat-toolbar-single-row{display:flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar-multiple-rows{display:flex;box-sizing:border-box;flex-direction:column;width:100%}
 </style><style>.mat-icon{background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px}.mat-icon.mat-icon-inline{font-size:inherit;height:inherit;line-height:inherit;width:inherit}[dir=rtl] .mat-icon-rtl-mirror{transform:scale(-1, 1)}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon{display:block}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-icon{margin:auto}
 </style><style>.mat-form-field{display:inline-block;position:relative;text-align:left}[dir=rtl] .mat-form-field{text-align:right}.mat-form-field-wrapper{position:relative}.mat-form-field-flex{display:inline-flex;align-items:baseline;box-sizing:border-box;width:100%}.mat-form-field-prefix,.mat-form-field-suffix{white-space:nowrap;flex:none;position:relative}.mat-form-field-infix{display:block;position:relative;flex:auto;min-width:0;width:180px}.cdk-high-contrast-active .mat-form-field-infix{border-image:linear-gradient(transparent, transparent)}.mat-form-field-label-wrapper{position:absolute;left:0;box-sizing:content-box;width:100%;height:100%;overflow:hidden;pointer-events:none}[dir=rtl] .mat-form-field-label-wrapper{left:auto;right:0}.mat-form-field-label{position:absolute;left:0;font:inherit;pointer-events:none;width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;transform-origin:0 0;transition:transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1),color 400ms cubic-bezier(0.25, 0.8, 0.25, 1),width 400ms cubic-bezier(0.25, 0.8, 0.25, 1);display:none}[dir=rtl] .mat-form-field-label{transform-origin:100% 0;left:auto;right:0}.mat-form-field-empty.mat-form-field-label,.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display:block}.mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label{display:none}.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label{display:block;transition:none}.mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,.mat-input-server[placeholder]:not(:placeholder-shown)+.mat-form-field-label-wrapper .mat-form-field-label{display:none}.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-can-float .mat-input-server[placeholder]:not(:placeholder-shown)+.mat-form-field-label-wrapper .mat-form-field-label{display:block}.mat-form-field-label:not(.mat-form-field-empty){transition:none}.mat-form-field-underline{position:absolute;width:100%;pointer-events:none;transform:scale3d(1, 1.0001, 1)}.mat-form-field-ripple{position:absolute;left:0;width:100%;transform-origin:50%;transform:scaleX(0.5);opacity:0;transition:background-color 300ms cubic-bezier(0.55, 0, 0.55, 0.2)}.mat-form-field.mat-focused .mat-form-field-ripple,.mat-form-field.mat-form-field-invalid .mat-form-field-ripple{opacity:1;transform:none;transition:transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1),opacity 100ms cubic-bezier(0.25, 0.8, 0.25, 1),background-color 300ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-subscript-wrapper{position:absolute;box-sizing:border-box;width:100%;overflow:hidden}.mat-form-field-subscript-wrapper .mat-icon,.mat-form-field-label-wrapper .mat-icon{width:1em;height:1em;font-size:inherit;vertical-align:baseline}.mat-form-field-hint-wrapper{display:flex}.mat-form-field-hint-spacer{flex:1 0 1em}.mat-error{display:block}.mat-form-field-control-wrapper{position:relative}.mat-form-field-hint-end{order:1}.mat-form-field._mat-animation-noopable .mat-form-field-label,.mat-form-field._mat-animation-noopable .mat-form-field-ripple{transition:none}
 </style><style>.mat-form-field-appearance-fill .mat-form-field-flex{border-radius:4px 4px 0 0;padding:.75em .75em 0 .75em}.cdk-high-contrast-active .mat-form-field-appearance-fill .mat-form-field-flex{outline:solid 1px}.mat-form-field-appearance-fill .mat-form-field-underline::before{content:"";display:block;position:absolute;bottom:0;height:1px;width:100%}.mat-form-field-appearance-fill .mat-form-field-ripple{bottom:0;height:2px}.cdk-high-contrast-active .mat-form-field-appearance-fill .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-fill:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{opacity:1;transform:none;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-fill._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{transition:none}.mat-form-field-appearance-fill .mat-form-field-subscript-wrapper{padding:0 1em}
@@ -35,9 +35,9 @@
 </style><style>.mat-form-field-appearance-legacy .mat-form-field-label{transform:perspective(100px);-ms-transform:none}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon{width:1em}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon-button,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button{font:inherit;vertical-align:baseline}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button .mat-icon{font-size:inherit}.mat-form-field-appearance-legacy .mat-form-field-underline{height:1px}.cdk-high-contrast-active .mat-form-field-appearance-legacy .mat-form-field-underline{height:0;border-top:solid 1px}.mat-form-field-appearance-legacy .mat-form-field-ripple{top:0;height:2px;overflow:hidden}.cdk-high-contrast-active .mat-form-field-appearance-legacy .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline{background-position:0;background-color:transparent}.cdk-high-contrast-active .mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline{border-top-style:dotted;border-top-width:2px}.mat-form-field-appearance-legacy.mat-form-field-invalid:not(.mat-focused) .mat-form-field-ripple{height:1px}
 </style><style>.mat-form-field-appearance-outline .mat-form-field-wrapper{margin:.25em 0}.mat-form-field-appearance-outline .mat-form-field-flex{padding:0 .75em 0 .75em;margin-top:-0.25em;position:relative}.mat-form-field-appearance-outline .mat-form-field-prefix,.mat-form-field-appearance-outline .mat-form-field-suffix{top:.25em}.mat-form-field-appearance-outline .mat-form-field-outline{display:flex;position:absolute;top:.25em;left:0;right:0;bottom:0;pointer-events:none}.mat-form-field-appearance-outline .mat-form-field-outline-start,.mat-form-field-appearance-outline .mat-form-field-outline-end{border:1px solid currentColor;min-width:5px}.mat-form-field-appearance-outline .mat-form-field-outline-start{border-radius:5px 0 0 5px;border-right-style:none}[dir=rtl] .mat-form-field-appearance-outline .mat-form-field-outline-start{border-right-style:solid;border-left-style:none;border-radius:0 5px 5px 0}.mat-form-field-appearance-outline .mat-form-field-outline-end{border-radius:0 5px 5px 0;border-left-style:none;flex-grow:1}[dir=rtl] .mat-form-field-appearance-outline .mat-form-field-outline-end{border-left-style:solid;border-right-style:none;border-radius:5px 0 0 5px}.mat-form-field-appearance-outline .mat-form-field-outline-gap{border-radius:.000001px;border:1px solid currentColor;border-left-style:none;border-right-style:none}.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-outline-gap{border-top-color:transparent}.mat-form-field-appearance-outline .mat-form-field-outline-thick{opacity:0}.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap{border-width:2px}.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline,.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline{opacity:0;transition:opacity 100ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-thick{opacity:1}.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline{opacity:0;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline-thick{opacity:1}.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper{padding:0 1em}.mat-form-field-appearance-outline._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-outline,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-start,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-end,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-gap{transition:none}
 </style><style>.mat-form-field-appearance-standard .mat-form-field-flex{padding-top:.75em}.mat-form-field-appearance-standard .mat-form-field-underline{height:1px}.cdk-high-contrast-active .mat-form-field-appearance-standard .mat-form-field-underline{height:0;border-top:solid 1px}.mat-form-field-appearance-standard .mat-form-field-ripple{bottom:0;height:2px}.cdk-high-contrast-active .mat-form-field-appearance-standard .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-standard.mat-form-field-disabled .mat-form-field-underline{background-position:0;background-color:transparent}.cdk-high-contrast-active .mat-form-field-appearance-standard.mat-form-field-disabled .mat-form-field-underline{border-top-style:dotted;border-top-width:2px}.mat-form-field-appearance-standard:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{opacity:1;transform:none;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-standard._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{transition:none}
-</style><style>.fs-MenuLink[_ngcontent-mht-c41]{text-decoration:none;font-size:inherit;width:100%;display:flex;justify-content:center;padding:0;margin:0}.fs-MenuLink[_ngcontent-mht-c41], .fs-MenuLink[_ngcontent-mht-c41]:hover{background-color:transparent}</style><style>.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{opacity:0}.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:.04}@media(hover: none){.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:0}}.mat-button,.mat-icon-button,.mat-stroked-button,.mat-flat-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-button.mat-button-disabled,.mat-icon-button.mat-button-disabled,.mat-stroked-button.mat-button-disabled,.mat-flat-button.mat-button-disabled{cursor:default}.mat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-button.cdk-program-focused .mat-button-focus-overlay,.mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-icon-button.cdk-program-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-program-focused .mat-button-focus-overlay,.mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-flat-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button.mat-button-disabled{cursor:default}.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-raised-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-raised-button::-moz-focus-inner{border:0}._mat-animation-noopable.mat-raised-button{transition:none;animation:none}.mat-stroked-button{border:1px solid currentColor;padding:0 15px;line-height:34px}.mat-stroked-button .mat-button-ripple.mat-ripple,.mat-stroked-button .mat-button-focus-overlay{top:-1px;left:-1px;right:-1px;bottom:-1px}.mat-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab::-moz-focus-inner{border:0}.mat-fab.mat-button-disabled{cursor:default}.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-fab{transition:none;animation:none}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab.mat-button-disabled{cursor:default}.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-mini-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-mini-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-mini-fab{transition:none;animation:none}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button i,.mat-icon-button .mat-icon{line-height:24px}.mat-button-ripple.mat-ripple,.mat-button-focus-overlay{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-button-ripple.mat-ripple:not(:empty){transform:translateZ(0)}.mat-button-focus-overlay{opacity:0;transition:opacity 200ms cubic-bezier(0.35, 0, 0.25, 1),background-color 200ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-button-focus-overlay{transition:none}.mat-button-ripple-round{border-radius:50%;z-index:1}.mat-button .mat-button-wrapper>*,.mat-flat-button .mat-button-wrapper>*,.mat-stroked-button .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{display:inline-flex;justify-content:center;align-items:center;font-size:inherit;width:2.5em;height:2.5em}.cdk-high-contrast-active .mat-button,.cdk-high-contrast-active .mat-flat-button,.cdk-high-contrast-active .mat-raised-button,.cdk-high-contrast-active .mat-icon-button,.cdk-high-contrast-active .mat-fab,.cdk-high-contrast-active .mat-mini-fab{outline:solid 1px}.cdk-high-contrast-active .mat-button-base.cdk-keyboard-focused,.cdk-high-contrast-active .mat-button-base.cdk-program-focused{outline:solid 3px}
+</style><style>.fs-MenuLink[_ngcontent-ngg-c41]{text-decoration:none;font-size:inherit;width:100%;display:flex;justify-content:center;padding:0;margin:0}.fs-MenuLink[_ngcontent-ngg-c41], .fs-MenuLink[_ngcontent-ngg-c41]:hover{background-color:transparent}</style><style>.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{opacity:0}.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:.04}@media(hover: none){.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:0}}.mat-button,.mat-icon-button,.mat-stroked-button,.mat-flat-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-button.mat-button-disabled,.mat-icon-button.mat-button-disabled,.mat-stroked-button.mat-button-disabled,.mat-flat-button.mat-button-disabled{cursor:default}.mat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-button.cdk-program-focused .mat-button-focus-overlay,.mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-icon-button.cdk-program-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-program-focused .mat-button-focus-overlay,.mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-flat-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button.mat-button-disabled{cursor:default}.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-raised-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-raised-button::-moz-focus-inner{border:0}._mat-animation-noopable.mat-raised-button{transition:none;animation:none}.mat-stroked-button{border:1px solid currentColor;padding:0 15px;line-height:34px}.mat-stroked-button .mat-button-ripple.mat-ripple,.mat-stroked-button .mat-button-focus-overlay{top:-1px;left:-1px;right:-1px;bottom:-1px}.mat-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab::-moz-focus-inner{border:0}.mat-fab.mat-button-disabled{cursor:default}.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-fab{transition:none;animation:none}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab.mat-button-disabled{cursor:default}.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-mini-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-mini-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-mini-fab{transition:none;animation:none}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button i,.mat-icon-button .mat-icon{line-height:24px}.mat-button-ripple.mat-ripple,.mat-button-focus-overlay{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-button-ripple.mat-ripple:not(:empty){transform:translateZ(0)}.mat-button-focus-overlay{opacity:0;transition:opacity 200ms cubic-bezier(0.35, 0, 0.25, 1),background-color 200ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-button-focus-overlay{transition:none}.mat-button-ripple-round{border-radius:50%;z-index:1}.mat-button .mat-button-wrapper>*,.mat-flat-button .mat-button-wrapper>*,.mat-stroked-button .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{display:inline-flex;justify-content:center;align-items:center;font-size:inherit;width:2.5em;height:2.5em}.cdk-high-contrast-active .mat-button,.cdk-high-contrast-active .mat-flat-button,.cdk-high-contrast-active .mat-raised-button,.cdk-high-contrast-active .mat-icon-button,.cdk-high-contrast-active .mat-fab,.cdk-high-contrast-active .mat-mini-fab{outline:solid 1px}.cdk-high-contrast-active .mat-button-base.cdk-keyboard-focused,.cdk-high-contrast-active .mat-button-base.cdk-program-focused{outline:solid 3px}
 </style><style>mat-menu{display:none}.mat-menu-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;max-height:calc(100vh - 48px);border-radius:4px;outline:0;min-height:64px}.mat-menu-panel.ng-animating{pointer-events:none}.cdk-high-contrast-active .mat-menu-panel{outline:solid 1px}.mat-menu-content:not(:empty){padding-top:8px;padding-bottom:8px}.mat-menu-item{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;line-height:48px;height:48px;padding:0 16px;text-align:left;text-decoration:none;max-width:100%;position:relative}.mat-menu-item::-moz-focus-inner{border:0}.mat-menu-item[disabled]{cursor:default}[dir=rtl] .mat-menu-item{text-align:right}.mat-menu-item .mat-icon{margin-right:16px;vertical-align:middle}.mat-menu-item .mat-icon svg{vertical-align:top}[dir=rtl] .mat-menu-item .mat-icon{margin-left:16px;margin-right:0}.mat-menu-item[disabled]{pointer-events:none}.cdk-high-contrast-active .mat-menu-item{margin-top:1px}.cdk-high-contrast-active .mat-menu-item.cdk-program-focused,.cdk-high-contrast-active .mat-menu-item.cdk-keyboard-focused,.cdk-high-contrast-active .mat-menu-item-highlighted{outline:dotted 1px}.mat-menu-item-submenu-trigger{padding-right:32px}.mat-menu-item-submenu-trigger::after{width:0;height:0;border-style:solid;border-width:5px 0 5px 5px;border-color:transparent transparent transparent currentColor;content:"";display:inline-block;position:absolute;top:50%;right:16px;transform:translateY(-50%)}[dir=rtl] .mat-menu-item-submenu-trigger{padding-right:16px;padding-left:32px}[dir=rtl] .mat-menu-item-submenu-trigger::after{right:auto;left:16px;transform:rotateY(180deg) translateY(-50%)}button.mat-menu-item{width:100%}.mat-menu-item .mat-menu-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}
-</style><style>@font-face{font-family:Zilla Slab;font-style:italic;font-weight:300;src:local("Zilla Slab Light Italic"),local(ZillaSlab-LightItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CVHaZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CVHaZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CVHaZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:400;src:local("Zilla Slab Italic"),local(ZillaSlab-Italic),url(//fonts.gstatic.com/s/zillaslab/v6/dFa4ZfeM_74wlPZtksIFaj8K8VSI.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa4ZfeM_74wlPZtksIFaj8K_1SM.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa4ZfeM_74wlPZtksIFaj8K8VSK.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:500;src:local("Zilla Slab Medium Italic"),local(ZillaSlab-MediumItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CDHeZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CDHeZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CDHeZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:600;src:local("Zilla Slab SemiBold Italic"),local(ZillaSlab-SemiBoldItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CIHCZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CIHCZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CIHCZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:700;src:local("Zilla Slab Bold Italic"),local(ZillaSlab-BoldItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CRHGZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CRHGZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CRHGZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:300;src:local("Zilla Slab Light"),local(ZillaSlab-Light),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYpEY6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYpEY6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYpEY6H2pXQ.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:400;src:local("Zilla Slab"),local(ZillaSlab-Regular),url(//fonts.gstatic.com/s/zillaslab/v6/dFa6ZfeM_74wlPZtksIFajQ6-Q.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa6ZfeM_74wlPZtksIFajo6_Q.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa6ZfeM_74wlPZtksIFajQ6-w.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:500;src:local("Zilla Slab Medium"),local(ZillaSlab-Medium),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYskZ6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYskZ6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYskZ6H2pXQ.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:600;src:local("Zilla Slab SemiBold"),local(ZillaSlab-SemiBold),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYuUe6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYuUe6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYuUe6H2pXQ.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:700;src:local("Zilla Slab Bold"),local(ZillaSlab-Bold),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYoEf6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYoEf6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYoEf6H2pXQ.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:100;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:200;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:300;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:400;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:500;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:600;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:700;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:800;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:900;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYAZFhjg.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:100;src:local("Saira Thin"),local(Saira-Thin),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81Uw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZE1Vw.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81UQ.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:200;src:local("Saira ExtraLight"),local(Saira-ExtraLight),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:300;src:local("Saira Light"),local(Saira-Light),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:400;src:local("Saira Regular"),local(Saira-Regular),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZc.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNknTZM.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZU.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:500;src:local("Saira Medium"),local(Saira-Medium),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:600;src:local("Saira SemiBold"),local(Saira-SemiBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:700;src:local("Saira Bold"),local(Saira-Bold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:800;src:local("Saira ExtraBold"),local(Saira-ExtraBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:900;src:local("Saira Black"),local(Saira-Black),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccr4.woff) format("woff")}@font-face{font-family:monospace;font-style:italic;font-weight:400;src:local("Menlo Italic"),local(Menlo-Italic),local("Consolas Italic"),local(Consolas-Italic),local("Courier New Italic")}@font-face{font-family:monospace;font-style:italic;font-weight:700;src:local("Menlo Bold Italic"),local(Menlo-BoldItalic),local(Monaco),local("Consolas Bold Italic"),local(Consolas-BoldItalic),local("Courier New Bold Italic")}@font-face{font-family:monospace;font-style:normal;font-weight:400;src:local("Menlo Regular"),local(Menlo-Regular),local(Monaco),local(Consolas),local("Courier New")}@font-face{font-family:monospace;font-style:normal;font-weight:700;src:local("Menlo Bold"),local(Menlo-Bold),local(Monaco),local("Consolas Bold"),local(Consolas-Bold),local("Courier New Bold")}code{color:#000;background-color:rgba(0,0,0,.05);display:inline-block;font-weight:700;opacity:.6;font-family:monospace;font-size:80%;-webkit-padding-start:10px;padding-inline-start:10px;-webkit-padding-end:10px;padding-inline-end:10px}.TopicHeaderImage{background-size:cover;background-position:50%;background-repeat:no-repeat;height:400px;width:100%}pre{color:#000;background-color:rgba(0,0,0,.15);display:block;font-weight:700;opacity:.8;font-family:monospace;font-size:80%;-webkit-padding-start:24px;padding-inline-start:24px;-webkit-padding-end:24px;padding-inline-end:24px;padding-top:.8rem;padding-bottom:.8rem;white-space:pre-wrap;word-wrap:break-word;word-break:keep-all}ul{padding-left:20px;list-style:none;list-style-image:none;margin:0;word-break:break-word;font-weight:400;font-family:Arial,Helvetica,sans-serif}li{list-style-type:disc}article.TopicContent a,article.TopicContent a:active,article.TopicContent a:focus,article.TopicContent a:hover,article.TopicContent a:link,article.TopicContent a:visited{text-decoration:none}article.TopicContent a,article.TopicContent a:link,article.TopicContent a:visited{outline:none;opacity:.7;color:#0e648f!important;font-weight:700;text-decoration:none;font-family:Saira;font-size:23px;letter-spacing:.06em;padding:0 1px;transition:opacity .3s}article.TopicContent a:active,article.TopicContent a:focus,article.TopicContent a:hover{opacity:1}article{font-size:22px;line-height:48px;letter-spacing:.015em;word-spacing:.02em;font-family:Inter;font-weight:400}p{margin-bottom:2.5rem}main{display:flex;flex-direction:column}.TopicTitle{font-size:44px;font-weight:400}.TopicTitle,h1{font-family:Zilla Slab}h1{font-size:36px}h2{font-family:Zilla Slab;font-size:28px}section{display:flex;align-items:center;justify-content:space-between}</style><style>@font-face{font-family:Saira;font-style:normal;font-weight:100;src:local("Saira Thin"),local(Saira-Thin),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81Uw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZE1Vw.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81UQ.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:200;src:local("Saira ExtraLight"),local(Saira-ExtraLight),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:300;src:local("Saira Light"),local(Saira-Light),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:400;src:local("Saira Regular"),local(Saira-Regular),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZc.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNknTZM.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZU.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:500;src:local("Saira Medium"),local(Saira-Medium),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:600;src:local("Saira SemiBold"),local(Saira-SemiBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:700;src:local("Saira Bold"),local(Saira-Bold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:800;src:local("Saira ExtraBold"),local(Saira-ExtraBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:900;src:local("Saira Black"),local(Saira-Black),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccr4.woff) format("woff")}.TopicMeta[_ngcontent-mht-c33]{display:flex;margin-top:0;margin-bottom:1rem;font-size:16px}.TopicMeta_author[_ngcontent-mht-c33]{margin-bottom:4px}.TopicMeta_icon[_ngcontent-mht-c33]{font-size:60px;height:60px;width:60px}.TopicMeta_iconContainer[_ngcontent-mht-c33]{width:60px;height:100px}.TopicMeta_contentContainer[_ngcontent-mht-c33], .TopicMeta_iconContainer[_ngcontent-mht-c33]{display:flex;flex-direction:column;justify-content:center;align-items:center}.TopicMeta_contentContainer[_ngcontent-mht-c33]{font-family:Saira;font-weight:400;margin-left:1rem}</style><style>.SocialIconLink[_ngcontent-mht-c34]{background-color:rgba(0,0,0,.1);transition:1s}.SocialIconLink[_ngcontent-mht-c34], .SocialIconLink[_ngcontent-mht-c34]:hover{color:#000;display:flex;justify-content:center;align-items:center;width:50px;height:50px}.SocialIconLink[_ngcontent-mht-c34]:hover{background-color:rgba(0,0,0,.6);transition:.5s}.SocialIconLink[_ngcontent-mht-c34]:hover   i[_ngcontent-mht-c34]{color:azure}i[_ngcontent-mht-c34]{font-size:22px;color:rgba(0,0,0,.5);transition:.5s}a[_ngcontent-mht-c34]{text-decoration:none;margin-right:1rem}</style><style>.fs-BackgroundImage[_ngcontent-mht-c14] {
+</style><style>@font-face{font-family:Zilla Slab;font-style:italic;font-weight:300;src:local("Zilla Slab Light Italic"),local(ZillaSlab-LightItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CVHaZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CVHaZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CVHaZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:400;src:local("Zilla Slab Italic"),local(ZillaSlab-Italic),url(//fonts.gstatic.com/s/zillaslab/v6/dFa4ZfeM_74wlPZtksIFaj8K8VSI.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa4ZfeM_74wlPZtksIFaj8K_1SM.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa4ZfeM_74wlPZtksIFaj8K8VSK.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:500;src:local("Zilla Slab Medium Italic"),local(ZillaSlab-MediumItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CDHeZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CDHeZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CDHeZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:600;src:local("Zilla Slab SemiBold Italic"),local(ZillaSlab-SemiBoldItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CIHCZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CIHCZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CIHCZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:italic;font-weight:700;src:local("Zilla Slab Bold Italic"),local(ZillaSlab-BoldItalic),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CRHGZV3Bz.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CRHGZWXB3.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFanZfeM_74wlPZtksIFaj8CRHGZV3Bx.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:300;src:local("Zilla Slab Light"),local(ZillaSlab-Light),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYpEY6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYpEY6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYpEY6H2pXQ.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:400;src:local("Zilla Slab"),local(ZillaSlab-Regular),url(//fonts.gstatic.com/s/zillaslab/v6/dFa6ZfeM_74wlPZtksIFajQ6-Q.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa6ZfeM_74wlPZtksIFajo6_Q.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa6ZfeM_74wlPZtksIFajQ6-w.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:500;src:local("Zilla Slab Medium"),local(ZillaSlab-Medium),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYskZ6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYskZ6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYskZ6H2pXQ.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:600;src:local("Zilla Slab SemiBold"),local(ZillaSlab-SemiBold),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYuUe6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYuUe6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYuUe6H2pXQ.woff) format("woff")}@font-face{font-family:Zilla Slab;font-style:normal;font-weight:700;src:local("Zilla Slab Bold"),local(ZillaSlab-Bold),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYoEf6H2pXw.eot#) format("eot"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYoEf6HOpWw.woff2) format("woff2"),url(//fonts.gstatic.com/s/zillaslab/v6/dFa5ZfeM_74wlPZtksIFYoEf6H2pXQ.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:100;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:200;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:300;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:400;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:500;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:600;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:700;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:800;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYAZFhjg.woff) format("woff")}@font-face{font-family:Inter;font-style:normal;font-weight:900;src:url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYAZFhjA.eot#) format("eot"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYAZ9hiA.woff2) format("woff2"),url(//fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYAZFhjg.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:100;src:local("Saira Thin"),local(Saira-Thin),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81Uw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZE1Vw.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81UQ.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:200;src:local("Saira ExtraLight"),local(Saira-ExtraLight),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:300;src:local("Saira Light"),local(Saira-Light),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:400;src:local("Saira Regular"),local(Saira-Regular),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZc.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNknTZM.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZU.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:500;src:local("Saira Medium"),local(Saira-Medium),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:600;src:local("Saira SemiBold"),local(Saira-SemiBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:700;src:local("Saira Bold"),local(Saira-Bold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:800;src:local("Saira ExtraBold"),local(Saira-ExtraBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:900;src:local("Saira Black"),local(Saira-Black),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccr4.woff) format("woff")}@font-face{font-family:monospace;font-style:italic;font-weight:400;src:local("Menlo Italic"),local(Menlo-Italic),local("Consolas Italic"),local(Consolas-Italic),local("Courier New Italic")}@font-face{font-family:monospace;font-style:italic;font-weight:700;src:local("Menlo Bold Italic"),local(Menlo-BoldItalic),local(Monaco),local("Consolas Bold Italic"),local(Consolas-BoldItalic),local("Courier New Bold Italic")}@font-face{font-family:monospace;font-style:normal;font-weight:400;src:local("Menlo Regular"),local(Menlo-Regular),local(Monaco),local(Consolas),local("Courier New")}@font-face{font-family:monospace;font-style:normal;font-weight:700;src:local("Menlo Bold"),local(Menlo-Bold),local(Monaco),local("Consolas Bold"),local(Consolas-Bold),local("Courier New Bold")}code{color:#000;background-color:rgba(0,0,0,.05);display:inline-block;font-weight:700;opacity:.6;font-family:monospace;font-size:80%;-webkit-padding-start:10px;padding-inline-start:10px;-webkit-padding-end:10px;padding-inline-end:10px}.TopicHeaderImage{background-size:cover;background-position:50%;background-repeat:no-repeat;height:400px;width:100%}pre{color:#000;background-color:rgba(0,0,0,.15);display:block;font-weight:700;opacity:.8;font-family:monospace;font-size:80%;-webkit-padding-start:24px;padding-inline-start:24px;-webkit-padding-end:24px;padding-inline-end:24px;padding-top:.8rem;padding-bottom:.8rem;white-space:pre-wrap;word-wrap:break-word;word-break:keep-all}ul{padding-left:20px;list-style:none;list-style-image:none;margin:0;word-break:break-word;font-weight:400;font-family:Arial,Helvetica,sans-serif}li{list-style-type:disc}article.TopicContent a,article.TopicContent a:active,article.TopicContent a:focus,article.TopicContent a:hover,article.TopicContent a:link,article.TopicContent a:visited{text-decoration:none}article.TopicContent a,article.TopicContent a:link,article.TopicContent a:visited{outline:none;opacity:.7;color:#0e648f!important;font-weight:700;text-decoration:none;font-family:Saira;font-size:23px;letter-spacing:.06em;padding:0 1px;transition:opacity .3s}article.TopicContent a:active,article.TopicContent a:focus,article.TopicContent a:hover{opacity:1}article{font-size:22px;line-height:48px;letter-spacing:.015em;word-spacing:.02em;font-family:Inter;font-weight:400}p{margin-bottom:2.5rem}main{display:flex;flex-direction:column}.TopicTitle{font-size:44px;font-weight:400}.TopicTitle,h1{font-family:Zilla Slab}h1{font-size:36px}h2{font-family:Zilla Slab;font-size:28px}section{display:flex;align-items:center;justify-content:space-between}</style><style>@font-face{font-family:Saira;font-style:normal;font-weight:100;src:local("Saira Thin"),local(Saira-Thin),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81Uw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZE1Vw.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem-Ya2wxmKQyNFEfZ81UQ.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:200;src:local("Saira ExtraLight"),local(Saira-ExtraLight),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHobIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:300;src:local("Saira Light"),local(Saira-Light),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGMb4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:400;src:local("Saira Regular"),local(Saira-Regular),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZc.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNknTZM.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/memwYa2wxmKQyNkpTZU.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:500;src:local("Saira Medium"),local(Saira-Medium),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNHUboYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:600;src:local("Saira SemiBold"),local(Saira-SemiBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNH4aYYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:700;src:local("Saira Bold"),local(Saira-Bold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGcaIYccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:800;src:local("Saira ExtraBold"),local(Saira-ExtraBold),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4YScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGAa4Yccr4.woff) format("woff")}@font-face{font-family:Saira;font-style:normal;font-weight:900;src:local("Saira Black"),local(Saira-Black),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccrw.eot#) format("eot"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYScrg.woff2) format("woff2"),url(//fonts.gstatic.com/s/saira/v5/mem9Ya2wxmKQyNGkaoYccr4.woff) format("woff")}.TopicMeta[_ngcontent-ngg-c33]{display:flex;margin-top:0;margin-bottom:1rem;font-size:16px}.TopicMeta_author[_ngcontent-ngg-c33]{margin-bottom:4px}.TopicMeta_icon[_ngcontent-ngg-c33]{font-size:60px;height:60px;width:60px}.TopicMeta_iconContainer[_ngcontent-ngg-c33]{width:60px;height:100px}.TopicMeta_contentContainer[_ngcontent-ngg-c33], .TopicMeta_iconContainer[_ngcontent-ngg-c33]{display:flex;flex-direction:column;justify-content:center;align-items:center}.TopicMeta_contentContainer[_ngcontent-ngg-c33]{font-family:Saira;font-weight:400;margin-left:1rem}</style><style>.SocialIconLink[_ngcontent-ngg-c34]{background-color:rgba(0,0,0,.1);transition:1s}.SocialIconLink[_ngcontent-ngg-c34], .SocialIconLink[_ngcontent-ngg-c34]:hover{color:#000;display:flex;justify-content:center;align-items:center;width:50px;height:50px}.SocialIconLink[_ngcontent-ngg-c34]:hover{background-color:rgba(0,0,0,.6);transition:.5s}.SocialIconLink[_ngcontent-ngg-c34]:hover   i[_ngcontent-ngg-c34]{color:azure}i[_ngcontent-ngg-c34]{font-size:22px;color:rgba(0,0,0,.5);transition:.5s}a[_ngcontent-ngg-c34]{text-decoration:none;margin-right:1rem}</style><style>.fs-BackgroundImage[_ngcontent-ngg-c14] {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -86,81 +86,66 @@
 </style><script>window['ScullyIO']='generated';</script></head>
     
     <body scully-version="1.1.1"><div id="MathJax_Message" style="display: none;"></div>
-      <app-root _nghost-mht-c46="" ng-version="12.0.3"><fs-toolbar _ngcontent-mht-c46="" _nghost-mht-c42=""><mat-toolbar _ngcontent-mht-c42="" class="mat-toolbar hideShowToolbar showToolbar mat-toolbar-single-row"><mat-icon _ngcontent-mht-c42="" role="img" svgicon="fs-logo" class="mat-icon notranslate Logo mat-icon-no-color" style="outline: none; text-decoration: none;" aria-hidden="true" tabindex="0" data-mat-icon-type="svg" data-mat-icon-name="fs-logo"><svg class="fs-Logo" version="1.1" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
+      <app-root _nghost-ngg-c46="" ng-version="12.0.3"><fs-toolbar _ngcontent-ngg-c46="" _nghost-ngg-c42=""><mat-toolbar _ngcontent-ngg-c42="" class="mat-toolbar hideShowToolbar showToolbar mat-toolbar-single-row"><mat-icon _ngcontent-ngg-c42="" role="img" svgicon="fs-logo" class="mat-icon notranslate Logo mat-icon-no-color" style="outline: none; text-decoration: none;" aria-hidden="true" tabindex="0" data-mat-icon-type="svg" data-mat-icon-name="fs-logo"><svg class="fs-Logo" version="1.1" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
  <g transform="translate(0 -244.08)">
   <path d="m0 244.08v52.917h52.917v-52.917zm8.8403 6.6415 35.236 12.781v4.5625l-35.236 12.781v-5.0023l28.365-10.032-28.365-10.087zm3.7796 11.39a3.7798 3.7798 0 0 1 3.7796 3.7801 3.7798 3.7798 0 0 1-3.7796 3.7796 3.7798 3.7798 0 0 1-3.7796-3.7796 3.7798 3.7798 0 0 1 3.7796-3.7801zm31.456 10.461v5.0023l-35.236 12.781v-5.0023z"></path>
  </g>
-</svg></mat-icon><mat-form-field _ngcontent-mht-c42="" floatlabel="never" class="mat-form-field ng-tns-c27-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-has-label mat-form-field-hide-placeholder ng-star-inserted"><div class="mat-form-field-wrapper ng-tns-c27-0"><div class="mat-form-field-flex ng-tns-c27-0"><!----><!----><div class="mat-form-field-infix ng-tns-c27-0"><input _ngcontent-mht-c42="" matinput="" type="text" autocomplete="off" class="mat-input-element mat-form-field-autofill-control ng-tns-c27-0 cdk-text-field-autofill-monitored" id="mat-input-0" data-placeholder="Search" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c27-0"><label class="mat-form-field-label ng-tns-c27-0 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-1" for="mat-input-0" aria-owns="mat-input-0"><span class="ng-tns-c27-0 ng-star-inserted">Search</span><!----><!----><!----><!----></label><!----></span></div><div class="mat-form-field-suffix ng-tns-c27-0 ng-star-inserted"><mat-icon _ngcontent-mht-c42="" role="img" matsuffix="" class="mat-icon notranslate material-icons mat-icon-no-color ng-tns-c27-0" aria-hidden="true" data-mat-icon-type="font">search</mat-icon></div><!----></div><div class="mat-form-field-underline ng-tns-c27-0 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c27-0"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c27-0"><!----><div class="mat-form-field-hint-wrapper ng-tns-c27-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c27-0"></div></div><!----></div></div></mat-form-field><fs-menu _ngcontent-mht-c42="" _nghost-mht-c41=""><button _ngcontent-mht-c41="" aria-haspopup="true" mat-icon-button="" class="mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base"><span class="mat-button-wrapper"><mat-icon _ngcontent-mht-c41="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">more_vert</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span><span class="mat-button-focus-overlay"></span></button><!----><mat-menu _ngcontent-mht-c41="" class="ng-tns-c19-1"><!----></mat-menu></fs-menu></mat-toolbar></fs-toolbar><body _ngcontent-mht-c46=""><main _ngcontent-mht-c46="" class="Outlet MinimumPadding"><router-outlet _ngcontent-mht-c46=""></router-outlet><app-topic class="ng-star-inserted"><main><h1 class="TopicTitle" style="margin-bottom: 2rem;">Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager | Guide</h1><section><fs-article-meta _nghost-mht-c33=""><div _ngcontent-mht-c33="" class="TopicMeta"><div _ngcontent-mht-c33="" class="TopicMeta_iconContainer"><mat-icon _ngcontent-mht-c33="" role="img" class="mat-icon notranslate TopicMeta_icon material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">account_circle</mat-icon></div><div _ngcontent-mht-c33="" class="TopicMeta_contentContainer"><span _ngcontent-mht-c33="" class="TopicMeta_author">Ole Ersoy</span><div _ngcontent-mht-c33=""><span _ngcontent-mht-c33="">Jan - 22 &nbsp;-&nbsp; 17 min </span></div></div></div></fs-article-meta><div style="display: flex;"><fs-social-icon _nghost-mht-c34=""><a _ngcontent-mht-c34="" class="SocialIconLink" href="https://twitter.com/share?text=Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager&amp;url=http://localhost:1864/guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager"><i _ngcontent-mht-c34="" class="fa-twitter fab"></i></a></fs-social-icon><fs-social-icon _nghost-mht-c34=""><a _ngcontent-mht-c34="" class="SocialIconLink" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1864/guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager"><i _ngcontent-mht-c34="" class="fa-facebook fab"></i></a></fs-social-icon><fs-social-icon _nghost-mht-c34=""><a _ngcontent-mht-c34="" class="SocialIconLink" href="https://www.linkedin.com/shareArticle?mini=true&amp;summary=Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities.&amp;title=Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager&amp;url=http://localhost:1864/guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager"><i _ngcontent-mht-c34="" class="fa-linkedin-in fab"></i></a></fs-social-icon></div></section><fs-background-image style="margin-bottom: 3rem;" _nghost-mht-c14=""><div _ngcontent-mht-c14="" class="fs-BackgroundImage" style="height: 400px;"></div></fs-background-image><!----><article class="TopicContent"><h1 id="introduction">Introduction</h1>
-<p>We will be creating the NgRx demo application from scratch using the <a href="https://www.npmjs.com/package/@fireflysemantics/slice">Firefly Semantics Slice</a> Lightweight Reactive Application State Manager.</p>
+</svg></mat-icon><mat-form-field _ngcontent-ngg-c42="" floatlabel="never" class="mat-form-field ng-tns-c27-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-has-label mat-form-field-hide-placeholder ng-star-inserted"><div class="mat-form-field-wrapper ng-tns-c27-0"><div class="mat-form-field-flex ng-tns-c27-0"><!----><!----><div class="mat-form-field-infix ng-tns-c27-0"><input _ngcontent-ngg-c42="" matinput="" type="text" autocomplete="off" class="mat-input-element mat-form-field-autofill-control ng-tns-c27-0 cdk-text-field-autofill-monitored" id="mat-input-0" data-placeholder="Search" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c27-0"><label class="mat-form-field-label ng-tns-c27-0 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-1" for="mat-input-0" aria-owns="mat-input-0"><span class="ng-tns-c27-0 ng-star-inserted">Search</span><!----><!----><!----><!----></label><!----></span></div><div class="mat-form-field-suffix ng-tns-c27-0 ng-star-inserted"><mat-icon _ngcontent-ngg-c42="" role="img" matsuffix="" class="mat-icon notranslate material-icons mat-icon-no-color ng-tns-c27-0" aria-hidden="true" data-mat-icon-type="font">search</mat-icon></div><!----></div><div class="mat-form-field-underline ng-tns-c27-0 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c27-0"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c27-0"><!----><div class="mat-form-field-hint-wrapper ng-tns-c27-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c27-0"></div></div><!----></div></div></mat-form-field><fs-menu _ngcontent-ngg-c42="" _nghost-ngg-c41=""><button _ngcontent-ngg-c41="" aria-haspopup="true" mat-icon-button="" class="mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base"><span class="mat-button-wrapper"><mat-icon _ngcontent-ngg-c41="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">more_vert</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span><span class="mat-button-focus-overlay"></span></button><!----><mat-menu _ngcontent-ngg-c41="" class="ng-tns-c19-1"><!----></mat-menu></fs-menu></mat-toolbar></fs-toolbar><body _ngcontent-ngg-c46=""><main _ngcontent-ngg-c46="" class="Outlet MinimumPadding"><router-outlet _ngcontent-ngg-c46=""></router-outlet><app-topic class="ng-star-inserted"><main><h1 class="TopicTitle" style="margin-bottom: 2rem;">Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager | Guide</h1><section><fs-article-meta _nghost-ngg-c33=""><div _ngcontent-ngg-c33="" class="TopicMeta"><div _ngcontent-ngg-c33="" class="TopicMeta_iconContainer"><mat-icon _ngcontent-ngg-c33="" role="img" class="mat-icon notranslate TopicMeta_icon material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">account_circle</mat-icon></div><div _ngcontent-ngg-c33="" class="TopicMeta_contentContainer"><span _ngcontent-ngg-c33="" class="TopicMeta_author">Ole Ersoy</span><div _ngcontent-ngg-c33=""><span _ngcontent-ngg-c33="">Jan - 22 &nbsp;-&nbsp; 18 min </span></div></div></div></fs-article-meta><div style="display: flex;"><fs-social-icon _nghost-ngg-c34=""><a _ngcontent-ngg-c34="" class="SocialIconLink" href="https://twitter.com/share?text=Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager&amp;url=http://localhost:1864/guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager"><i _ngcontent-ngg-c34="" class="fa-twitter fab"></i></a></fs-social-icon><fs-social-icon _nghost-ngg-c34=""><a _ngcontent-ngg-c34="" class="SocialIconLink" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1864/guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager"><i _ngcontent-ngg-c34="" class="fa-facebook fab"></i></a></fs-social-icon><fs-social-icon _nghost-ngg-c34=""><a _ngcontent-ngg-c34="" class="SocialIconLink" href="https://www.linkedin.com/shareArticle?mini=true&amp;summary=Recreation of the NgRx demo application in order to illustrate Slice simplicity and capabilities.&amp;title=Recreating the NgRx Demo App With the Firefly Semantics Slice State Manager&amp;url=http://localhost:1864/guides/guides--recreating-the-ngrx-demo-app-with-firefly-semantics-slice-state-manager"><i _ngcontent-ngg-c34="" class="fa-linkedin-in fab"></i></a></fs-social-icon></div></section><fs-background-image style="margin-bottom: 3rem;" _nghost-ngg-c14=""><div _ngcontent-ngg-c14="" class="fs-BackgroundImage" style="height: 400px;"></div></fs-background-image><!----><article class="TopicContent"><h1 id="introduction">Introduction</h1>
+<p>We will be creating the NgRx demo application from scratch using the <a href="https://www.npmjs.com/package/@fireflysemantics/slice">Firefly Semantics Slice Lightweight Reactive Application State Manager</a>.</p>
 <p><fs-link-preview imageurl="https://fireflysemantics.github.io/i/logos/png/slicelogo.png" title="@fireflysemantics/slice" description="Lightweight Reactive Web Application State Management" domain="www.npmjs.com" url="https://www.npmjs.com/package/@fireflysemantics/slice">
 </fs-link-preview></p>
 <p>The NgRx Demo allows us to search the Google Books API and place books in our own collection.</p>
 <p>We will be doing this incrementally in phases describing the <a href="https://www.npmjs.com/package/@fireflysemantics/slice">Slice</a> state management implementation details as we go along.</p>
+<p>The Ngrx Demo allows us to search the Google Books API and place books in our own collection.</p>
 <h1 id="final-stackblitz-demo">Final Stackblitz Demo</h1>
 <p>To play around with this demo log in with the username <strong>test</strong> and use any password.</p>
 <p><fs-link-preview imageurl="https://fireflysemantics.github.io/i/developer/stackblitz.jpeg" title="Stackblitz Slice NgRx Demo" description="Firefly Semantics Slice NgRx Demo Application" domain="stackblitz.com" url="https://stackblitz.com/edit/angular-slice-ngrx-scratch-demo-final-10?embed=1&amp;file=src/app/app.component.ts">
 </fs-link-preview></p>
-<!--
-The iframe flickers due to the 
-scroll tracking on the 
-toolbar.
-<iframe frameBorder='0' 
-        style='border:none; width: 100%; height: 30rem;' 
-        src='https://stackblitz.com/edit/angular-slice-ngrx-scratch-demo-final-10?embed=1&file=src/app/app.component.ts'></iframe>
--->
-<p>You may also wish to review and compare a <a href="https://engineering.datorama.com/i-built-the-ngrx-demo-app-with-akita-heres-the-result-57f83fe92192">similar capability from Akita</a>.</p>
-<h1 id="new-stackblitz-starter-project">New Stackblitz Starter Project</h1>
+<h1 id="stackblitz">Stackblitz</h1>
 <p>Go to <a href="https://stackblitz.com/">Stackblitz</a> and start a brand new Angular project.</p>
 <p>Delete the <code>hello.component.ts</code> and remove it from <code>app.module.ts</code> correspondingly.</p>
 <p>Remove the <code>&lt;hello name=”{{ name }}”&gt;&lt;/hello&gt;</code> from <code>app.component.html</code>.</p>
 <h1 id="dependencies">Dependencies</h1>
-<p>Click on dependencies and enter the following and accept the additional dependencies that need to be installed:</p>
+<p>The dependencies for this project are as follows:</p>
 <ul>
 <li><code>@angular/material</code></li>
 <li><code>@fireflysemantics/slice</code></li>
+<li><code>@fireflysemantics/material-base-module</code></li>
 <li><code>@ngneat/until-destroy</code></li>
+<li><code>@types/nanoid</code></li>
+<li><code>nanoid</code></li>
 </ul>
-<p>If you are doing this in a command line Angular project instead, install <a href="https://www.npmjs.com/package/@fireflysemantics/slice">Slice</a> with it's <code>nanoid</code> peer dependency like this:</p>
-<pre><code>npm i @fireflysemantics/slice nanoid
-</code></pre>
-<p>The dependency <code>@ngneat/until-destroy</code> is used to automatically <code>unsubscribe</code> when a component is destroyed.</p>
-<h1 id="material-setup">Material Setup</h1>
-<h2 id="styling">Styling</h2>
-<p>Add the Material <code>indigo</code> theme to <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fstyles.css"><code>src/styles.css</code></a> with:</p>
+<p>These need to be installed using NPM via the command line in a desktop angular project.</p>
+<p>Stackblitz will automatically pull in peer dependencies, so when <a href="https://www.npmjs.com/package/@fireflysemantics/slice">Slice</a> is declared as a dependency it automatically pulls in <code>@types/nanoid</code> and <code>naonoid</code>.</p>
+<p>The dependency <code>@ngneat/until-destroy</code> is used to automatically unsubscribe when a component is destroyed.</p>
+<h1 id="styling-and-icons">Styling and Icons</h1>
+<p>Update <code>src/styles.css</code> with:</p>
 <pre><code>@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 </code></pre>
-<h2 id="icons">Icons</h2>
-<p>Add the material icons CDN link to <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Findex.html"><code>src/index.html</code></a>.</p>
-<pre><code>&lt;head&gt;
-  &lt;link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/&gt;
-&lt;/head&gt;
+<p>Add the material icons cdn link to <code>src/index.html</code>:</p>
+<pre><code>&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
 </code></pre>
-<h1 id="material-module">Material Module</h1>
-<p>The <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fmaterial%2Fmaterial.module.ts"><code>src/app/modules/material.module.ts</code></a> contains the material components we will be using:</p>
-<fs-gist height="40rem" gistid="fireflysemantics/2178255e8da8bcb3a0482f95d9e6ad69">
-</fs-gist>
+<h1 id="model">Model</h1>
+<p>The folder <code>src/app/model</code> will hold our model types within <code>index.ts</code>:</p>
+<pre><code>export type Book = {
+  id: string;
+  volumeInfo: {
+    title: string;
+    subtitle: string;
+    authors: string[];
+    publisher: string;
+    publishDate: string;
+    description: string;
+    averageRating: number;
+    ratingsCount: number;
+    imageLinks: {
+      thumbnail: string;
+      smallThumbnail: string;
+    };
+  };
+};
 
-<h1 id="app-module-baseline">App Module Baseline</h1>
-<p>Import the <code>MaterialModule</code>, the <code>BrowserAnimationsModule</code> and the <code>RouterModule</code> and call <code>forRoot</code> on an empty set of routes.  We will be adding additional routing later.</p>
-<pre><code>import { RouterModule, Routes } from "@angular/router";
-const routes: Routes = [];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    ...
-  ],
-  ...
-})
-</code></pre>
-<p>The reason we scaffold this out here
-is to that we can test our components by 
-rendering them in <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fapp.component.ts"><code>src/app/app.component.html</code></a> as we are going along.</p>
-<h1 id="core-model">Core Model</h1>
-<p>The model <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fmodels%2Fsecurity.model.ts"><code>src/app/modules/core/models/security.model.ts</code></a> contains the <code>Credentials</code> type used for authentication and the <code>User</code> types used to determine whether a user is signed.  </p>
-<p>The <code>User</code> type could also be used to display profile data about the user in the UI as necessary.</p>
-<pre><code>export type Credentials = {
+export type Credentials = {
   username: string;
   password: string;
 };
@@ -169,278 +154,556 @@ export type User = {
   name: string;
 };
 </code></pre>
-<h1 id="core-services">Core Services</h1>
-<h2 id="application-state">Application State</h2>
-<p>The service <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fservices%2Fauth.service.ts"><code>src/app/modules/core/services/app-state.service.ts</code></a> 
-manages the core application state.</p>
-<p>The core application state consist of values keyed as follows:</p>
+<p>The <code>Book</code> model represents book instances we have retrieved via the Google Books API.</p>
+<p>The <code>Credentials</code> are login credentials.</p>
+<p>The <code>User</code> type represents an authenticated user.</p>
+<h1 id="services">Services</h1>
+<p>The folder <code>src/app/services</code> will contain all our services.</p>
+<h2 id="application-state-service">Application State Service</h2>
+<p>The application state service allows us to observe the state of:</p>
 <ul>
-<li><code>APPLICATION_CONFIG</code>: Application configuration.  We are not using one for this demo, but include it in general as it's nice to have access to it from the core application state. </li>
-<li><code>USER</code>: The authenticated user</li>
-<li><code>SIDENAV</code>: Whether the side navigation menu is open or closed.</li>
-<li><code>AUTHENTICATION_ERROR</code>: User sign in authentication error. </li>
-<li><code>IS_AUTHENTICATED</code>: Whether the user is authenticated.</li>
+<li>Side navigation (Open or Closed)</li>
+<li>User ( Null if not logged in)</li>
+<li>Authentication Error</li>
 </ul>
-<p>Each property also has a corresponding <code>Observable</code> reference initialized in the <code>AppStateService</code> constructor:</p>
-<ul>
-<li><p><code>sideNavOpen$: Observable&lt;boolean&gt;</code></p>
-</li>
-<li><p><code>isLoggedIn$: Observable&lt;boolean&gt;</code></p>
-</li>
-<li><p><code>user$: Observable&lt;User&gt;</code></p>
-</li>
-<li><p><code>authenticationError$: Observable&lt;boolean&gt;</code></p>
-<p>The object store state is contained and managed by the <code>OS:OStore</code> property on the <code>AppStateService</code>.  The <code>OS</code> property is initialized using the <code>START</code> configuration like this:</p>
-</li>
-</ul>
-<pre><code>//===================================
-//Create the object store instance
+<p>These have been modeled in a [Firefly Semantics Slice Object Store]. Click on this link for an introduction](<a href="https://developer.fireflysemantics.com/guides/guides--introduction-to-the-firefly-semantics-slice-reactive-object-store/">https://developer.fireflysemantics.com/guides/guides--introduction-to-the-firefly-semantics-slice-reactive-object-store/</a>).</p>
+<pre><code>import { Injectable } from '@angular/core';
+import {
+  KeyObsValueReset,
+  ObsValueReset,
+  OStore,
+  OStoreStart,
+} from '@fireflysemantics/slice';
+
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../model';
+
 //===================================
-OS: OStore&lt;ISTART&gt; = new OStore(START);
-</code></pre>
-<p>The <code>START</code> object contains the initial values for the <code>OStore</code> instance.  The values are <code>ObsValueReset</code> instances.  These instances contain the <code>Observable</code> for the store, the initial value, and the reset value (If it's different from the initial value).</p>
-<p>The <code>ISTART</code> interface definition is necessary in order to get IDE autocompletion.</p>
-<p>The <code>LOCAL_STORAGE_USER_KEY</code> is used to look up authenticated user instances in local storage.</p>
-<p>When the service constructor runs it initializes the user state like this:</p>
-<pre><code>const user =
-  JSON.parse(localStorage.getItem(LOCAL_STORAGE_USER_KEY)) || null;
-this.OS.put(this.OS.S.USER, user);
-</code></pre>
-<p>This way the app will render as authenticated if the user exists.</p>
-<p>The method <code>updateUser(user?: User)</code> places the value in local storage on authentication and also initalize the object store property <code>USER</code>.</p>
-<pre><code>/**
- * Update user state on sign in and sign out.
- */
-updateUser(user?: User) {
-  if (user) {
+//Create the User Key for local storage
+//===================================
+export const USER_KEY = 'USER_KEY';
+
+interface ISTART extends KeyObsValueReset {
+  SIDENAV: ObsValueReset;
+  USER: ObsValueReset;
+  AUTHENTICATION_ERROR: ObsValueReset;
+}
+
+@Injectable({ providedIn: 'root' })
+export class AppStateService {
+  START: OStoreStart = {
+    SIDENAV: { value: false, reset: false },
+    USER: { value: null, reset: null },
+    AUTHENTICATION_ERROR: { value: false, reset: false },
+  };
+  public OS: OStore&lt;ISTART&gt; = new OStore(this.START);
+
+  //===================================
+  //State parameters that we wish to observe
+  //===================================
+  public sideNavOpen$: Observable&lt;boolean&gt; = this.OS.S.SIDENAV.obs;
+  public user$: Observable&lt;User&gt; = this.OS.S.USER.obs;
+  public isLoggedIn$: Observable&lt;boolean&gt; = this.user$.pipe(map((u) =&gt; !!u));
+  public authenticationError$: Observable&lt;boolean&gt; =
+    this.OS.S.AUTHENTICATION_ERROR.obs;
+
+  constructor() {
+    const user = JSON.parse(localStorage.getItem(USER_KEY)) || null;
     this.OS.put(this.OS.S.USER, user);
-    localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(user));
-  } else {
-    this.OS.put(this.OS.S.USER, null);
-    localStorage.setItem(LOCAL_STORAGE_USER_KEY, null);
+  }
+
+  /**
+   * If the user is logged out just call
+   * updateUser() without an argument.
+   */
+  updateUser(user?: User) {
+    if (user) {
+      this.OS.put(this.OS.S.USER, user);
+      localStorage.setItem(USER_KEY, JSON.stringify(user));
+    } else {
+      this.OS.put(this.OS.S.USER, null);
+      localStorage.setItem(USER_KEY, null);
+    }
+  }
+
+  setAuthenticationError(e: boolean) {
+    this.OS.put(this.OS.S.AUTHENTICATION_ERROR, e);
+  }
+
+  /**
+   * Toggle the sidenav
+   */
+  toggleSidenav() {
+    this.OS.put(this.OS.S.SIDENAV, !this.OS.snapshot(this.OS.S.SIDENAV));
   }
 }
 </code></pre>
-<p>We derive the value for <code>isLoggedIn$</code> like this:</p>
+<p>The interface <code>ISTART</code> is used to name the reactive state properties and it gives us autocomplete for these values on the store:</p>
+<pre><code>interface ISTART extends KeyObsValueReset {
+    SIDENAV: ObsValueReset;
+    USER: ObsValueReset;
+    AUTHENTICATION_ERROR: ObsValueReset;
+}
+</code></pre>
+<p>The <code>START</code> object provides the initial set of values for the reactive state:</p>
+<pre><code>START: OStoreStart = {
+    SIDENAV: { value: false, reset: false },
+    USER: { value: null, reset: null },
+    AUTHENTICATION_ERROR: { value: false, reset: false }
+};
+</code></pre>
+<p>The Object Store (<code>OStore</code>) is created like this:</p>
+<pre><code>public OS: OStore&lt;ISTART&gt; = new OStore(this.START);
+</code></pre>
+<p>For convenience we will provide typed Observable references within the app-state.service:</p>
 <pre><code>//===================================
-// Derive the state for IS_AUTHENTICATED
-// Based on the user$ observable.
+//State parameters that we wish to observe
 //===================================
-this.user$
-    .pipe(
-      tap(u =&gt; {
-        this.OS.put(this.OS.S.IS_AUTHENTICATED, !!u);
+public sideNavOpen$: Observable&lt;boolean&gt; = this.OS.S.SIDENAV.obs;
+public user$: Observable&lt;User&gt; = this.OS.S.USER.obs;
+public isLoggedIn$: Observable&lt;boolean&gt; = this.user$.pipe(map((u) =&gt; !!u));
+public authenticationError$: Observable&lt;boolean&gt; = this.OS.S.AUTHENTICATION_ERROR.obs;
+</code></pre>
+<p>In the constructor we also load the user from local storage:</p>
+<pre><code>const user = JSON.parse(localStorage.getItem(USER_KEY)) || null;
+this.OS.put(this.OS.S.USER, user);
+</code></pre>
+<p>If the user does not log out this will simulate the user remaining authenticated.
+The <code>updateUser</code> method is called by the login component when the user authenticates:</p>
+<pre><code>/**
+ * If the user is logged out just call
+ * updateUser() without an argument.
+ */
+updateUser(user?: User) {
+if (user) {
+    this.OS.put(this.OS.S.USER, user);
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
+} else {
+    this.OS.put(this.OS.S.USER, null);
+    localStorage.setItem(USER_KEY, null);
+    }
+}
+The setAuthenticationError allows us to indicate when the login does not succeed:
+setAuthenticationError(e: boolean) {
+   this.OS.put(this.OS.S.AUTHENTICATION_ERROR, e);
+}
+The toggleSidenav method is a utility for modeling the sidenav state:
+/**
+ * Toggle the sidenav
+ */
+toggleSidenav() {
+    this.OS.put(this.OS.S.SIDENAV, 
+    !this.OS.snapshot(this.OS.S.SIDENAV));
+}
+</code></pre>
+<h2 id="authentication-service">Authentication Service</h2>
+<p>The <code>auth.service.ts</code> authenticates the user:</p>
+<pre><code>import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppStateService } from './app-state.service';
+import { Credentials } from '../model';
+
+export type Creds = { password: string; username: string };
+
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  constructor(private s: AppStateService, private r: Router) {}
+
+  login({ username, password }: Credentials) {
+    if (username !== 'test') {
+      this.s.setAuthenticationError(true);
+    } else {
+      this.s.setAuthenticationError(false);
+      this.s.updateUser({ name: username });
+      this.r.navigate(['/']);
+    }
+  }
+
+  logout() {
+    this.s.updateUser();
+    this.r.navigate(['/login']);
+  }
+}
+</code></pre>
+<p>This service uses the application state service to update the user on login:</p>
+<pre><code>this.state.updateUser({name:username});
+</code></pre>
+<p>And clear the user on logout:</p>
+<pre><code>this.state.updateUser();
+</code></pre>
+<h2 id="authentication-guard-service">Authentication Guard Service</h2>
+<p>The <code>auth-guard.service.ts</code> guards the application from being accessed when the user is not authenticated.</p>
+<pre><code>import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { AppStateService } from './app-state.service';
+
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+  constructor(private s: AppStateService, private router: Router) {}
+
+  canActivate(): Observable&lt;boolean&gt; {
+    return this.s.isLoggedIn$.pipe(
+      switchMap((isLoggedIn) =&gt; {
+        if (!isLoggedIn) {
+          this.router.navigate(['/login']);
+        }
+        return of(isLoggedIn);
+      })
+    );
+  }
+}
+</code></pre>
+<p>The application state service to check whether the user is authenticated:</p>
+<pre><code>return this.appState.isLoggedIn$.pipe(
+   switchMap((isLoggedIn) =&gt; {
+      if (!isLoggedIn) {
+         this.router.navigate(['/login']);
+}
+</code></pre>
+<h2 id="book-service">Book Service</h2>
+<p>The <code>book.service.ts</code> contains the Entity Stores for book search results and the book collection.</p>
+<p>For an introduction to Entity Stores see <a href="https://developer.fireflysemantics.com/guides/guides--introduction-to-the-firefly-semantics-slice-reactive-entity-store">Introduction to the Firefly Semantics Slice Reactive Entity Store</a>.</p>
+<p>The service also has the methods for performing API queries:</p>
+<pre><code>import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import {
+  map,
+  tap,
+  filter,
+  debounceTime,
+  distinctUntilChanged,
+} from 'rxjs/operators';
+import { Book } from '../model';
+import { EStore } from '@fireflysemantics/slice';
+
+@Injectable()
+export class BookService {
+  private API_PATH = 'https://www.googleapis.com/books/v1/volumes';
+
+  public bookStore: EStore&lt;Book&gt; = new EStore();
+  public bookCollection: EStore&lt;Book&gt; = new EStore();
+  
+  public books$: Observable&lt;Book[]&gt; = this.bookStore.observe();
+  public collection$: Observable&lt;Book[]&gt; = this.bookCollection.observe();
+
+  constructor(private http: HttpClient) {
+    this.bookStore
+      .observeQuery()
+      .pipe(
+        filter(Boolean),
+        debounceTime(200),
+        distinctUntilChanged(),
+        tap(async (query: string) =&gt; {
+          const bo: Observable&lt;Book[]&gt; = this.searchAPI(query);
+          const books: Book[] = await bo.toPromise();
+          this.bookStore.reset();
+          this.bookStore.postA(books);
+        })
+      )
+      .subscribe();
+  }
+
+  onSearch(query: string) {
+    this.bookStore.query = query;
+  }
+
+  searchAPI(query: string): Observable&lt;Book[]&gt; {
+    return this.http
+      .get&lt;{ items: Book[] }&gt;(`${this.API_PATH}?q=${query}`)
+      .pipe(map((books) =&gt; books.items || []));
+  }
+
+  getById(volumeId: string): Observable&lt;Book&gt; {
+    return this.http.get&lt;Book&gt;(`${this.API_PATH}/${volumeId}`);
+  }
+
+  /**
+   * Toggle the book collection with the `book` inttance.
+   * @param book The book to remove or add.
+   */
+  toggleCollection(book: Book) {
+    this.bookCollection.toggle(book);
+  }
+}
+</code></pre>
+<p>The book entity store is created like this:</p>
+<pre><code>public bookStore: EStore&lt;Book&gt; = new EStore();
+</code></pre>
+<p>And the entity store for the collection like this:</p>
+<pre><code>public bookCollection: EStore&lt;Book&gt; = new EStore();
+</code></pre>
+<p>We observe the books in the book entity store like this:</p>
+<pre><code>public books$: Observable&lt;Book[]&gt; = this.bookStore.observe();
+</code></pre>
+<p>The <code>books$</code> observable is used by the search component to render books found by the Google Books API.</p>
+<p>The <code>collection$</code> is used to observe the book collection:</p>
+<pre><code>public collection$: Observable&lt;Book[]&gt; = this.bookCollection.observe();
+</code></pre>
+<p>This observable will be used by the collection component to render the books in our collection.</p>
+<h2 id="listening-for-and-fetching-book-query-changes">Listening For and Fetching Book Query Changes</h2>
+<p>When the user types in a search query we will store the query string on the <code>bookStore.query</code> property such that we can observe this property and react to changes in its state:</p>
+<pre><code>onSearch(query: string) {
+    this.bookStore.query = query;
+}
+</code></pre>
+<p>We implement the observation of this property in the constructor of the <code>BookService</code>:</p>
+<pre><code>constructor(private http: HttpClient) {
+    this.bookStore.observeQuery().pipe(filter(Boolean),
+      debounceTime(200),
+      distinctUntilChanged(),
+      tap(async (query: string) =&gt; {
+        const bo: Observable&lt;Book[]&gt; = this.searchAPI(query);
+        const books: Book[] = await bo.toPromise();
+        this.bookStore.reset();
+        this.bookStore.postA(books);
       })
     )
     .subscribe();
 }
 </code></pre>
-<p>The method <code>setAuthenticationError()</code> is used to indicate that an authentication error occurred during signin.</p>
-<p>If the <code>LoginComponent</code> calls this method to indicate that an authentication error occurred the UI will process the corresponding observable and display the error. </p>
-<p>The method <code>toggleSideNav()</code> is used to open and close the side navigation menu item container.</p>
-<h2 id="security">Security</h2>
-<p>The <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fservices%2Fauth.service.ts"><code>src/app/modules/core/services/auth.service.ts</code></a> manages sign in and sign out.</p>
-<p>The <code>login</code> method sets the authentication error if the <code>username</code> does not match <code>test</code>.  </p>
-<p>If the <code>username</code> matches <code>test</code> then the user state is updated and the application navigates to <code>/</code> which redirects this to <code>/books</code>.</p>
-<pre><code>login({ username, password }: Credentials) {
-  if (username !== "test") {
-    this.s.setAuthenticationError(true);
-  } else {
-    this.s.updateUser({ name: username });
-    this.router.navigate(["/"]);
-  }
+<p>By calling <code>this.bookStore.observeQuery()</code> we create an observable that fires whenever the user creates <code>keyup</code> events in the search field.</p>
+<p>We <code>debounce</code> these events so that we react to them at most every <code>200</code> milliseconds.</p>
+<p>We then search the API for books that match the query, reset the store, and post the new search result to the store.</p>
+<p>Posting the new results to the store will cause the <code>books$</code> observable to emit the new search results and this will then be rendered by the search component.</p>
+<p>The other methods in the service are for searching the Google Book API and toggling our book collection with Book instances:</p>
+<pre><code>toggleCollection(book:Book) {
+    this.bookCollection.toggle(book);
 }
 </code></pre>
-<p>The <code>logout</code> method sets the user state to null and navigate to <code>/login</code>:</p>
-<pre><code>logout() {
-  this.s.updateUser();
-  this.router.navigate(["/login"]);
+<h2 id="book-resolver-service">Book Resolver Service</h2>
+<p>The <code>book-resolver.service.ts</code> makes the selected book available to the <code>ViewBookComponent</code> route. 
+We wire it up like this:</p>
+<pre><code>{
+    path: ':id',
+    component: ViewBookComponent,
+    resolve: { book: BookResolverService }
 }
 </code></pre>
-<h2 id="guard">Guard</h2>
-<p>The <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fservices%2Fauth-guard.ts"><code>src/app/modules/core/services/auth-guard.service.ts</code></a> secures the route <code>/books</code>.</p>
-<p>The <code>canActivate</code> method checks the application state to see if the user is authenticated.  If not it routes to <code>/login</code>.</p>
-<pre><code>canActivate(): Observable&lt;boolean&gt; {
-    const isAuthenticated = this.s.OS.snapshot(this.s.OS.S.IS_AUTHENTICATED);
-    if (!isAuthenticated) {
-      this.router.navigate(["/login"]);
+<pre><code>import { Injectable } from '@angular/core';
+import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { Book } from '../model';
+import { BookService } from './book.service';
+
+@Injectable()
+export class BookResolverService implements Resolve&lt;Book&gt; {
+  constructor(private router: Router, private bookService: BookService) {}
+  async resolve(route: ActivatedRouteSnapshot) {
+    const id = route.paramMap.get('id');
+    let book = this.bookService.bookStore.findOneByID(id);
+
+    if (!book) {
+      try {
+        book = await this.bookService.getById(id).toPromise();
+        return book;
+      } catch (err) {
+        this.router.navigate(['/404']);
+        return null;
+      }
     }
-    return isAuthenticated;
+    return book;
   }
 }
 </code></pre>
-<h1 id="core-components">Core Components</h1>
-<p>The <code>core.module.ts</code> contains the following components.</p>
-<h2 id="login">Login</h2>
-<p>The component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fcomponents%2Flogin.component.ts"><code>src/app/modules/core/components/login.component.ts</code></a> authenticates users.  The <code>submit</code> function delegates to <code>AuthService</code> for signin:</p>
+<p>The resolver first tries to lookup the book based on the provided&nbsp;:id parameter:</p>
+<pre><code>const id = route.paramMap.get('id');
+let book = this.bookService.bookStore.findOneByID(id);
+</code></pre>
+<p>If it can't find the book it looks for it in the API:</p>
+<pre><code>book = await this.bookService.getById(id).toPromise();
+return book;
+</code></pre>
+<p>If it still can't find it it will navigate to the <code>NotFound</code> component.</p>
+<h1 id="components">Components</h1>
+<h2 id="authors-presentation-component">Authors Presentation Component</h2>
+<p>The <code>src/app/components/book/authors.component.ts</code> renders the authors associated with a book.</p>
+<h2 id="book-detail-presentation-component">Book Detail Presentation Component</h2>
+<p>The <code>src/app/components/book/book-detail.component.ts</code> renders the detailed display of a Book instance.</p>
+<h2 id="collection-page-component">Collection Page Component</h2>
+<p>The <code>src/app/components/book/collection.component.ts</code> renders the book collection.</p>
+<p>The collection rendered by the component is retrieved from the <code>BookService</code> like this:</p>
+<pre><code>this.books$ = this.bookService.
+              bookCollection.observe().
+              pipe(untilDestroyed(this));
+</code></pre>
+<h2 id="preview-list-presentation-component">Preview List Presentation Component</h2>
+<p>The <code>src/app/components/book/preview-list.component.ts</code> is used to preview books contained in the user collection and also to display books in the search result listing.</p>
+<h2 id="preview-presentation-component">Preview Presentation Component</h2>
+<p>The <code>src/app/components/book/preview.component.ts</code> component renders a preview of a <code>Book</code> instance.</p>
+<h2 id="search-smart-component">Search Smart Component</h2>
+<p>The <code>src/app/components/book/search.component.ts</code> binds the query to the <code>bookStore.query</code> parameter that we are observing in the <code>BookService</code> via this method.</p>
+<pre><code>search(query:string) {
+    this.bookService.onSearch(query);
+}
+</code></pre>
+<p>The search method is triggered when the user types in the search field.
+This is all that is needed to trigger the search. The search will update the <code>books$</code> observable and then the search results are rendered by this part of the search component template:</p>
+<pre><code>&lt;bc-book-preview-list
+[books]="bookService.books$ | async"&gt;
+&lt;/bc-book-preview-list&gt;
+Also note the template for the search field:
+&lt;mat-form-field&gt;
+&lt;input matInput
+placeholder="Search books"
+[value]="bookService.bookStore.query"
+(keyup)="search($event.target.value)" autocomplete=off&gt;
+&lt;/mat-form-field&gt;
+</code></pre>
+<p>We are initializing the value of the field using the query string stored on the <code>bookStore.query</code> field.
+This way if we navigate away from the search component and come back it will remember our last query.</p>
+<h2 id="view-book-smart-component">View Book Smart Component</h2>
+<p>The <code>src/app/components/book/view-book.component.ts</code> retrieves the book from the route:</p>
+<pre><code>this.book = this.route.snapshot.data['book'];
+</code></pre>
+<p>It then clears the bookStore active books:</p>
+<pre><code>this.bookService.bookStore.clearActive();
+this.bookService.bookStore.addActive(this.book);
+this.isSelectedBookInCollection$ = this.bookCollection$.pipe(map(() =&gt; this.bookCollection.contains(this.book)));
+</code></pre>
+<p>Then we add the book to the <code>bookStore.active</code> map of active books.</p>
+<p>And finally we initialize the <code>isSelectedBookInCollection$</code> observable so that we can notify the UI as to whether the currently active book is in the collection or not.</p>
+<h2 id="login-component">Login Component</h2>
+<p>The <code>src/app/components/core/login.component.ts</code> logs the user in via submit:</p>
 <pre><code>submit() {
-  if (this.form.valid) {
-    this.AS.login(this.form.value);
-  }
+if (this.form.valid) {
+        this.authService.login(this.form.value);
+    }
 }
 </code></pre>
-<p>The <code>AuthService.login()</code> method in turn delegates to the <code>AppStateService.updateUser(user:User)</code> method to process the form value.</p>
-<p>When the <code>USER</code> property of the <code>OS:OStore</code> is initialized it in turn triggers to derived state <code>IS_AUTHENTICATED</code> to be true.</p>
-<h2 id="toolbar">Toolbar</h2>
-<p>The component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fcomponents%2Ftoolbar.component.ts"><code>src/app/modules/core/components/toolbar.component.ts</code></a> contains the hamburger icon that triggers side navigation.</p>
-<p>When the hamburger icon button is clicked it fires the <code>openMenu</code> event emitter.  </p>
-<p>Within the <code>app.component.ts</code> template we assign that event to the <code>AppStateService.toggleSidenav()</code> method like this:</p>
-<pre><code>&lt;bc-toolbar (openMenu)="s.toggleSidenav()"&gt;
+<p>If there is an error the <code>authService</code> will notify the application of it by calling the <code>AppStateService.setAuthenticationError</code> method causing <code>authenticationError$: Observable&lt;boolean&gt;</code> to broadcast true:</p>
+<pre><code>if (username !== 'test') {
+    this.state.setAuthenticationError(true);
+}
 </code></pre>
-<p>The <code>open</code> property of the <code>SideNavComponent</code> is thus toggled by the <code>AppStateService.sideNavOpen$</code> observable:</p>
-<pre><code>&lt;bc-sidenav [open]="s.sideNavOpen$ | async"&gt;
-</code></pre>
-<h2 id="not-found">Not Found</h2>
-<p>The component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fcomponents%2Fnot-found.component.ts"><code>src/app/modules/core/components/not-found.component.ts</code></a> is routed to if a route cannot be identified.</p>
-<h2 id="navigation-item">Navigation Item</h2>
-<p>The component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fcomponents%2Fnav-item.component.ts"><code>src/app/modules/core/components/nav-item.component.ts</code></a> is used to display navigation items in the side bar.</p>
-<p>The <code>navigate:EventEmitter</code> on the <code>nav-item</code> is used to trigger the closing of the side navigation menu and it is wired like this in the <code>app.component.ts</code> template:</p>
-<p><code>&lt;bc-nav-item (navigate)="s.toggleSidenav()"</code></p>
-<h2 id="side-navigation">Side Navigation</h2>
-<p>The component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fcomponents%2Fside-nav.component.ts"><code>src/app/modules/core/components/side-nav.component.ts</code></a> helps render the side navigation shell.</p>
-<h1 id="application-component-shell">Application Component Shell</h1>
-<p>The component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fapp.component.ts"><code>src/app/app.component.ts</code></a> contains the toolbar and the side navigation.</p>
-<p>The template uses <code>AppStateService.isLoggedIn$</code> to decide which navigation items should render based on whether the user is authenticated or not.</p>
-<pre><code>&lt;bc-nav-item (navigate)="signIn()"*ngIf="!(s.isLoggedIn$ | async)"&gt;
-  Sign In
-&lt;/bc-nav-item&gt;
-</code></pre>
-<p>Also when the user signs in or out <code>AppStateService.toggleSidenav()</code> is called programmatically like this in order to close the side navigation (Otherwise it remains open):</p>
-<pre><code>  signIn() {
+<p>This in turns causes the UI to display the error.</p>
+<h2 id="nav-item-presentation-component">Nav Item Presentation Component</h2>
+<p>The component <code>src/app/core/nav-item.component.ts</code> renders navigation items.</p>
+<h2 id="not-found-presentation-component">Not Found Presentation Component</h2>
+<p>The <code>src/app/components/core/not-found.component.ts</code> is routed to when the user enters a path that is not valid, but more specifically it is used if the <code>/books/:id</code> path tries to access an&nbsp;:id that does not exist. The resolver will route to <code>/404</code>.</p>
+<h2 id="side-nav-presentation-component">Side Nav Presentation Component</h2>
+<p>The component <code>src/app/components/core/side-nav.component.ts</code> renders the side navigation menu.</p>
+<h2 id="toolbar-component">Toolbar Component</h2>
+<p>The component <code>src/app/components/core/toolbar.component.ts</code> renders the side toolbar.</p>
+<h1 id="application-shell">Application Shell</h1>
+<p>The src/app/app.component.ts contains our application shell.</p>
+<pre><code>import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppStateService } from './services/app-state.service';
+import { AuthService } from './services/auth.service';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  constructor(
+    private router: Router,
+    public s: AppStateService,
+    public authService: AuthService
+  ) {}
+
+  signIn() {
     this.s.toggleSidenav();
-    this.r.navigate(["login"]);
+    this.router.navigate(['login']);
   }
   logout() {
     this.s.toggleSidenav();
-    this.AS.logout();
-    this.r.navigate(["login"]);
+    this.authService.logout();
+    this.router.navigate(['login']);
   }
-</code></pre>
-<p>Note that since we are using the <code>bc</code> prefix for all our component elements we changed <code>my-app</code> to <code>bc-app</code> in <code>src/index.html</code>.</p>
-<h1 id="login-route">Login Route</h1>
-<p>Within <code>app.module.ts</code> create the route <code>login</code> such that the login component will display when selected in the side navigation.</p>
-<pre><code>const routes: Routes = [{ path: "login", component: LoginComponent }];
-</code></pre>
-<p>When select <code>signin</code> the the side navigation the <code>login</code> component now displays.</p>
-<h1 id="core-module-definition">Core Module Definition</h1>
-<p>The <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fcore%2Fcore.module.ts"><code>src/app/modules/core/core.module.ts</code></a> contains all our core components and the corresponding module depenencies like the <code>ReactiveFormsModule</code>, etc.</p>
-<p>The <code>CoreModule</code> is imported by <code>app.module.ts</code>.</p>
-<h1 id="book-module">Book Module</h1>
-<p>The lazy loaded book module allows users to search for and add books to their collection.</p>
-<h2 id="book-model">Book Model</h2>
-<p>The book model file <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fmodels%2Fbook.model.ts"><code>src/app/modules/book/models/book.model.ts</code></a>.  It contains the model for books that users can add to their collection.</p>
-<h1 id="book-services">Book Services</h1>
-<h2 id="state">State</h2>
-<p>The service <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fservices%2Fbook-state.service.ts"><code>src/app/modules/book/services/book-state.service.ts</code></a> contains methods for updating the user book collection and storing search results.</p>
-<p>The <code>bookStore:EStore</code> instance stores books found while conducting a search.</p>
-<p>The <code>bookCollection:EStore</code> instance contains books the user adds to their collection. </p>
-<p>The <code>books$: Observable&lt;Book[]&gt;</code> is a reference to the <code>Observable</code> of the books contained in the <code>bookStore:EStore</code>.</p>
-<p>The <code>collection$: Observable&lt;Book[]&gt;</code> is an <code>Observable</code> of the books contained in the <code>bookCollection:EStore</code>.</p>
-<p>The <code>searching$: Observable&lt;boolean&gt;</code> is used to display the spinner when the search API is in progress.</p>
-<p>The method <code>onSearch(query:string)</code> is used to set the <code>bookStore.query</code> property to the current <code>query</code> string entered by the user.</p>
-<p>This way the <code>bookStore</code> is always aware of what the current <code>query</code> is.</p>
-<p>The <code>toggleCollection(book:Book)</code> method is used to add or remove the <code>book</code> argument from the collection.</p>
-<h2 id="api">API</h2>
-<p>The service <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fservices%2Fbook-api.service.ts"><code>src/app/modules/book/services/book-api.service.ts</code></a> contains the methods used to update book state and query the Google book API.</p>
-<p>The search API is triggered through observation of the the <code>bookStore.query</code> within the <code>book-api.service.ts</code> constructor.</p>
-<p>This is the code snippet:</p>
-<pre><code>s.bookStore
-  .observeQuery()
-  .pipe(
-    filter(Boolean),
-    debounceTime(200),
-    distinctUntilChanged(),
-    tap(async (query: string) =&gt; {
-      s.bookStore.searching = true;
-      const bo: Observable&lt;Book[]&gt; = this.searchAPI(query);
-      const books: Book[] = await bo.toPromise();
-      s.bookStore.reset();
-      s.bookStore.postA(books);
-      s.bookStore.searching = false;
-    })
-</code></pre>
-<p>When a new search term is observed, we set <code>bookStore.searching</code> to true in order to trigger the spinner.  We <code>await</code>the search results and when we receive them  we reset the <code>bookStore</code> in order to remove the previous results.  We then <code>postA</code> the array of books to the store and set <code>bookStore.searching</code> to false in order to remove the spinner and display the results.</p>
-<p>We also pass an error handler to <code>subscribe</code> in order to handle errors:</p>
-<pre><code>.subscribe(
-  () =&gt; {},
-  e =&gt; {
-    s.bookStore.searchError = of(e);
-  }
-);
-</code></pre>
-<h1 id="book-module-pipes">Book Module Pipes</h1>
-<h2 id="commas">Commas</h2>
-<p>The commas pipe <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fpipes%2Fcommas.pipe.ts"><code>src/app/modules/book/pipes/commas.pipe.ts</code></a> is used to separate authors by commas.</p>
-<h2 id="ellipsis">Ellipsis</h2>
-<p>The ellipsis pipe <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fpipes%2Fellipsis.pipe.ts"><code>src/app/modules/book/pipes/ellipsis.pipe.ts</code></a> shortens strings for display.</p>
-<h2 id="module">Module</h2>
-<p>The ellipsis pipe <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fpipes%2Fpipes.module.ts"><code>src/app/modules/book/pipes/pipes.module.ts</code></a> packages up our pipes so that we can import them into the <code>book.module.ts</code>, which we will create later.</p>
-<h1 id="book-module-components">Book Module Components</h1>
-<h2 id="authors">Authors</h2>
-<p>The authors component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fauthors.component.ts"><code>src/app/modules/book/components/authors.component.ts</code></a> formats and displays the book authors.</p>
-<h2 id="preview">Preview</h2>
-<p>The preview component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fpreview.component.ts"><code>src/app/modules/book/components/preview.component.ts</code></a> renders a preview of each <code>Book</code> instance.</p>
-<h2 id="preview-list">Preview List</h2>
-<p>The preview list component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fpreview-list.component.ts"><code>src/app/modules/book/components/preview-list.component.ts</code></a> renders a preview of an array of <code>Book</code> instances.</p>
-<h2 id="collection">Collection</h2>
-<p>The collection component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fcollection.component.ts"><code>src/app/modules/book/components/collection.component.ts</code></a> renders the books in the user collection.</p>
-<p>The <code>books$: Observable&lt;Book[]&gt;</code> is a reference to the <code>AppStateService.collection$</code> property.</p>
-<h2 id="search">Search</h2>
-<p>The search component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fsearch.component.ts"><code>src/app/modules/book/components/search.component.ts</code></a> renders book search results:</p>
-<pre><code>&lt;bc-book-preview-list [books]="s.books$ | async"&gt; &lt;/bc-book-preview-list&gt;
-</code></pre>
-<p>The query value is captured through the <code>search</code> method which is bound to the <code>input</code> fields <code>keyup</code> event:</p>
-<pre><code>(keyup)="search($any($event.target).value)"
-</code></pre>
-<p>The <code>search</code> method binds the <code>query</code> string to the <code>bookStore.query</code> property.</p>
-<p>The <code>bookStore.query</code> property is observed ( The setup for this is in the constructor of the <code>book-api.service.ts</code>). and any change to it that produces a defined query string will trigger a search.</p>
-<p>The component also has an <code>error$</code> property which is a reference to the <code>bookStore.searchError</code> observable property.</p>
-<p>If an error occurs during search it is bound to the <code>bookStore.searchError</code> property.</p>
-<p>The <code>error$</code> is used by the component to render the error display like this:</p>
-<pre><code>&lt;mat-card-footer&gt;
-    &lt;span *ngIf="(error$ | async)"&gt;
-    {{ error$ | async }}
-    &lt;/span&gt;
-&lt;/mat-card-footer&gt;
-</code></pre>
-<p>The <code>searching$:Observable&lt;boolean&gt;</code>, which is bound to the <code>AppStateService.searching$</code> property, displays the spinner like this:</p>
-<pre><code>&lt;mat-spinner
-  [class.show]="searching$ | async"
-  [diameter]="30"
-  [strokeWidth]="3"&gt;
-&lt;/mat-spinner&gt;
-</code></pre>
-<h2 id="book-view">Book View</h2>
-<p>The book view component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fbook-view.component.ts"><code>src/app/modules/book/components/book-view.component.ts</code></a> is a smart 
-component that delegates book detail display to the component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fbook-detail.component.ts"><code>src/app/modules/book/components/book-detail.component.ts</code></a>.</p>
-<p>The components properties are initialized like this:</p>
-<pre><code>this.book = this.route.snapshot.data["book"];
-this.isSelectedBookInCollection$ = this.s.collection$.pipe(
-      map(() =&gt; this.s.bookCollection.contains(this.book))
-);
-</code></pre>
-<p>As can be seen the <code>book</code> property is obtained from the <code>route</code> snapshot via the resolver.</p>
-<p>We derive the <code>isSelectedBookInCollection$</code> state from the <code>AppStateService.collection$</code> observable such that the any time there is a change to the books in the collection it will update the value.</p>
-<p>The <code>bc-book-detail</code> event emitters for <code>add</code> and <code>remove</code> are bound to the method:</p>
-<pre><code>toggleCollection() {
-    this.s.bookCollection.toggle(this.book);
 }
 </code></pre>
-<h2 id="book-detail">Book Detail</h2>
-<p>The book detail component <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fcomponents%2Fbook-detail.component.ts"><code>src/app/modules/book/components/book-detail.component.ts</code></a> allows reviewing book details and removing the book from or adding the book to the book collection.</p>
-<h1 id="book-module-resolver">Book Module Resolver</h1>
-<p>The resolver <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fresolvers%2Fbook-resolver.service.ts"><code>src/app/modules/book/resolvers/book-resolver.service.ts</code></a> 
-resolves books request by the path <code>books/:id</code>.</p>
-<h1 id="book-module-1">Book Module</h1>
-<p>The book module <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fmodules%2Fbook%2Fbook.module.ts"><code>src/app/modules/book/book.module.ts</code></a> imports the <code>HttpClientModule</code>, <code>MaterialModule</code>, <code>PipesModule</code>, and <code>CommonModule</code>.  It also imports the <code>RouterModule</code> and calls <code>forChild()</code> on it like this:  <code>RouterModule.forChild(routes)</code>.</p>
-<p>It declares the component we created and the <code>providers</code>.  Here's the <code>@NgModule</code> declaration:</p>
-<pre><code>@NgModule({
+<p>The file <code>app.component.html</code> contains the application shell template:</p>
+<pre><code>&lt;mat-sidenav-container fullscreen&gt;
+  &lt;bc-sidenav [open]="s.sideNavOpen$ | async"&gt;
+    &lt;bc-nav-item (navigate)="signIn()" *ngIf="!(s.isLoggedIn$ | async)"&gt;
+      Sign In
+    &lt;/bc-nav-item&gt;
+
+    &lt;bc-nav-item
+      (navigate)="s.toggleSidenav()"
+      *ngIf="s.isLoggedIn$ | async"
+      routerLink="/books/collection"
+      icon="book"
+      hint="View your book collection"
+    &gt;
+      My Collection
+    &lt;/bc-nav-item&gt;
+
+    &lt;bc-nav-item
+      (navigate)="s.toggleSidenav()"
+      *ngIf="s.isLoggedIn$ | async"
+      routerLink="/books"
+      icon="search"
+      hint="Find your next book!"
+    &gt;
+      Browse Books
+    &lt;/bc-nav-item&gt;
+
+    &lt;bc-nav-item (navigate)="logout()" *ngIf="s.isLoggedIn$ | async"&gt;
+      Sign Out
+    &lt;/bc-nav-item&gt;
+  &lt;/bc-sidenav&gt;
+  &lt;bc-toolbar (openMenu)="s.toggleSidenav()"&gt; Book Collection &lt;/bc-toolbar&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/mat-sidenav-container&gt;
+</code></pre>
+<p>When the user not signed in then the navigation item is shown via this <code>*ngIf</code> directive:</p>
+<pre><code>&lt;bc-nav-item (navigate)="signIn()" *ngIf="!(state.isLoggedIn$ | async)"&gt;
+   Sign In
+&lt;/bc-nav-item&gt;
+</code></pre>
+<p>Also note that the side navigation is gets the open and close state from the <code>sideNavOpen$</code> observable:</p>
+<pre><code>&lt;bc-sidenav [open]="state.sideNavOpen$ | async"&gt;
+</code></pre>
+<h1 id="modules">Modules</h1>
+<p>We will create a <code>core.module.ts</code> containing the core components used to boot the application. The <code>book.module.ts</code> is lazy loaded once the user authenticates and accesses the <code>/books</code> path.</p>
+<p>Have a look at the Stackblitz demo to see the design of the various components.</p>
+<h2 id="material-module">Material Module</h2>
+<p>We will be getting all the Angular Material components from the module:</p>
+<p><code>@fireflysemantics/material-base-module</code></p>
+<p>The <code>MaterialBaseModule</code> needs to be imported into all the application modules, except for the <code>app-routing.module.ts</code>, since all the other modules use the various Angular Material components.</p>
+<h2 id="book-module">Book Module</h2>
+<p>The <code>src/app/modules/book.module.ts</code> is a lazy loaded module containing all the components used to search for and create a book collection.</p>
+<pre><code>import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialBaseModule } from '@fireflysemantics/material-base-module';
+import { PipesModule } from '../pipes';
+
+import { BookAuthorsComponent } from '../components/book/authors.component';
+import { BookDetailComponent } from '../components/book/book-detail.component';
+import { CollectionComponent } from '../components/book/collection.component';
+import { BookPreviewListComponent } from '../components/book/preview-list.component';
+import { BookPreviewComponent } from '../components/book/preview.component';
+import { BookSearchComponent } from '../components/book/search.component';
+import { ViewBookComponent } from '../components/book/view-book.component';
+
+import { BookService } from '../services/book.service';
+import { BookResolverService } from '../services/book-resolver.service';
+
+export const routes: Routes = [
+  { path: '', component: BookSearchComponent, pathMatch: 'full' },
+  { path: 'collection', component: CollectionComponent },
+  {
+    path: ':id',
+    component: ViewBookComponent,
+    resolve: { book: BookResolverService },
+  },
+];
+
+@NgModule({
   imports: [
     PipesModule,
     HttpClientModule,
-    MaterialModule,
+    MaterialBaseModule,
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
   ],
   declarations: [
     BookSearchComponent,
@@ -448,20 +711,112 @@ resolves books request by the path <code>books/:id</code>.</p>
     BookPreviewComponent,
     BookAuthorsComponent,
     BookDetailComponent,
-    BookViewComponent,
-    CollectionComponent
+    ViewBookComponent,
+    CollectionComponent,
   ],
-  providers: [BookStateService, BookAPIService, BookResolverService]
+  providers: [BookService, BookResolverService],
 })
 export class BookModule {}
 </code></pre>
-<h1 id="update-the-appmodulets">Update the <code>app.module.ts</code></h1>
-<p>Click this <a href="https://stackblitz.com/edit/angular-11-slice-ngrx-demo?file=src%2Fapp%2Fapp.module.ts">link to see the final <code>app.module.ts</code></a> which includs the routes we created for the app.</p>
+<p>The module also contains the <code>Routes</code> for the the various components that the module bundles.</p>
+<h2 id="pipes-module">Pipes Module</h2>
+<p>The module <code>src/app/modules/pipes.module.ts</code> contains the pipes:</p>
+<ul>
+<li><code>commas.pipe.ts</code>: Used to format the authors component</li>
+<li><code>ellipsis.pipe.ts</code>: Used to abbreviate content</li>
+</ul>
+<p>This module is imported into the <code>books.module.ts</code>.</p>
+<h2 id="core-module">Core Module</h2>
+<p>The core module contains all the custom components used to instantiate the application shell:</p>
+<pre><code>import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MaterialBaseModule } from '@fireflysemantics/material-base-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { LoginComponent } from '../components/core/login.component';
+import { NavItemComponent } from '../components/core/nav-item.component';
+import { NotFoundComponent } from '../components/core/not-found.component';
+import { SideNavComponent } from '../components/core/sidenav.component';
+import { ToolbarComponent } from '../components/core/toolbar.component';
+
+const COMPONENTS = [
+  SideNavComponent,
+  NavItemComponent,
+  ToolbarComponent,
+  LoginComponent,
+  NotFoundComponent,
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialBaseModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  declarations: COMPONENTS,
+  exports: COMPONENTS,
+})
+export class CoreModule {}
+</code></pre>
+<h2 id="app-routing-module">App Routing Module</h2>
+<p>The <code>app-routing.module.ts</code> contains our main application routes. The books route handles loading lazy loading of the <code>book.module.ts</code>.</p>
+<pre><code>import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './services/auth-guard.service';
+import { LoginComponent } from './components/core/login.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/books', pathMatch: 'full' },
+  {
+    path: 'books',
+    loadChildren: () =&gt;
+      import('./modules/book.module').then((m) =&gt; m.BookModule),
+    canActivate: [AuthGuard],
+  },
+  { path: 'login', component: LoginComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, {})],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+</code></pre>
+<h2 id="app-module">App Module</h2>
+<p>The <code>app.module</code> imports the <code>core.module</code>,  the <code>app-routing.module</code>, the Firefly Semantics Material Base Module and the Angular Forms Modules.</p>
+<pre><code>import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './modules/core.module';
+import { AppRoutingModule } from './app-routing.module';
+import { MaterialBaseModule } from '@fireflysemantics/material-base-module';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CoreModule,
+    AppRoutingModule,
+    MaterialBaseModule,
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+</code></pre>
+<p>And that’s it. Our application is ready. We hope you enjoyed this article and if you like Firefly Semantics Slice please star our <a href="https://github.com/fireflysemantics/slice">Github Repository</a>.</p>
 <h1 id="summary">Summary</h1>
 <p>In this guide we reviewed the implementation of the NgRx demo application using the <a href="https://www.npmjs.com/package/@fireflysemantics/slice">Firefly Semantics Slice</a> Lightweight Reactive State Manager for web and mobile applications.</p>
 <p>If you have any comments or suggestion for the guide please add them to the <a href="https://github.com/fireflysemantics/slice/issues">Slice Github Repository</a> as an issue.</p>
 <p>We would also love it if you could star the repository.</p>
 </article></main></app-topic><!----></main></body></app-root>
-    <script id="ScullyIO-transfer-state"></script><script src="runtime.2acc7094a399245a7cb6.js" defer=""></script><script src="polyfills.b9c95681012c20163e33.js" defer=""></script><script src="main.b174379c485b3aa8431d.js" defer=""></script>
+    <script id="ScullyIO-transfer-state"></script><script src="runtime.2acc7094a399245a7cb6.js" defer=""></script><script src="polyfills.b9c95681012c20163e33.js" defer=""></script><script src="main.866c6d8f6216393f7bf7.js" defer=""></script>
     
     </body></html>
